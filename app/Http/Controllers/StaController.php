@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Detail;
+use App\Sta;
 use Illuminate\Http\Request;
 
-class DetailController extends Controller
+class StaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Detail  $detail
+     * @param  \App\Sta  $sta
      * @return \Illuminate\Http\Response
      */
-    public function show(Detail $detail)
+    public function show(Sta $sta)
     {
         //
     }
@@ -52,10 +52,10 @@ class DetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Detail  $detail
+     * @param  \App\Sta  $sta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Detail $detail)
+    public function edit(Sta $sta)
     {
         //
     }
@@ -64,10 +64,10 @@ class DetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Detail  $detail
+     * @param  \App\Sta  $sta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Detail $detail)
+    public function update(Request $request, Sta $sta)
     {
         //
     }
@@ -75,10 +75,10 @@ class DetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Detail  $detail
+     * @param  \App\Sta  $sta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Detail $detail)
+    public function destroy(Sta $sta)
     {
         //
     }

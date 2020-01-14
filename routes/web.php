@@ -20,5 +20,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 //學生首頁
 Route::get('/student','StudentController@index')->name('student.index');
+
+Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
+
+
+
+

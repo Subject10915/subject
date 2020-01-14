@@ -43,11 +43,6 @@ class User extends Authenticatable
         return $this->hasMany(Book::class);
     }
 
-    public function details()
-    {
-        return $this->hasMany(Detail::class);
-    }
-    
     //user跟student一對一關聯
     public function student(){
         return $this->hasOne(Student::class);
@@ -56,6 +51,11 @@ class User extends Authenticatable
     //user跟admin一對一關聯
     public function admin(){
         return $this->hasOne(Admin::class);
-
     }
+
+    public function stas()
+    {
+        return $this->hasMany(Sta::class);
+    }
+
 }

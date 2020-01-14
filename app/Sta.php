@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Detail extends Model
+class Sta extends Model
 {
     //
     public function users()
@@ -16,5 +16,4 @@ class Detail extends Model
     {
         return $this->belongsTo(Room::class);
     }
-
 }
