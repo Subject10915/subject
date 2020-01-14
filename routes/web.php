@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//
+//使用者認證
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
