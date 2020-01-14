@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //user跟student一對一關聯
+    public function student(){
+        return $this->hasOne(Student::class);
+    }
+
+    //user跟admin一對一關聯
+    public function admin(){
+        return $this->hasOne(Admin::class);
+    }
 }
