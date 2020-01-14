@@ -7,4 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Detail extends Model
 {
     //
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function rooms()
+    {
+        return $this->belongsTo(Room::class);
+    }
+
 }
