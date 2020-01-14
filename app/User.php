@@ -37,6 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     public function books()
     {
         return $this->hasMany(Book::class);
@@ -45,5 +46,16 @@ class User extends Authenticatable
     public function details()
     {
         return $this->hasMany(Detail::class);
+    }
+    
+    //user跟student一對一關聯
+    public function student(){
+        return $this->hasOne(Student::class);
+    }
+
+    //user跟admin一對一關聯
+    public function admin(){
+        return $this->hasOne(Admin::class);
+
     }
 }
