@@ -20,15 +20,33 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 //學生首頁
 Route::get('/student','StudentController@index')->name('student.index');
+
 
 //查詢-節次時段對照
 Route::get('/search/session','StudentController@session')->name('session');
 
 
+
+//後台首頁
+
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
+
+//進出教室名單
+Route::get('/admin/status', ['as' => 'admin.status.index', 'uses' => 'StaController@index']);
+
+//預約教室查詢
+Route::get('/admin/search', ['as' => 'admin.status.search', 'uses' => 'StaController@search']);
+
+//預約教室
+Route::get('/admin/reservation', ['as' => 'admin.book.index', 'uses' => 'BookController@adminindex']);
+
+//新增預約教室
+Route::get('/admin/reservation/create', ['as' => 'admin.book.create', 'uses' => 'BookController@admincreate']);
+
+//儲存預約教室
+Route::post('/admin', ['as' =>'admin.book.adminstore'  , 'uses' => 'BookController@adminstore']);
 
 
 
