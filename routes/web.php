@@ -24,6 +24,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 //學生首頁
 Route::get('/student','StudentController@index')->name('student.index');
 
+//查詢-節次時段對照
+Route::get('/search/session','StudentController@session')->name('session');
+
+
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
 
 

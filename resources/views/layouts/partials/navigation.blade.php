@@ -9,7 +9,7 @@
         height:30px;
         width:100px;
         float:left;
-        font-size:14px;
+        font-size:16px;
         display:inline;
     }
     ul li a {
@@ -45,9 +45,7 @@
                             <li><a class="dropdown-item" href="#">課表查詢</a></li>
                             <li><a class="dropdown-item" href="#">教室課表查詢</a></li>
                             <li><a class="dropdown-item" href="#">教室資訊查詢</a></li>
-                            <li><a class="dropdown-item" href="#">開課查詢</a></li>
-                            <li><a class="dropdown-item" href="#">歷年開課查詢</a></li>
-                            <li><a class="dropdown-item" href="#">節次時段對照</a></li>
+                            <li><a class="dropdown-item" href="{{ route('session') }}">節次時段對照</a></li>
                         </ul>
                         </div>
                     </li>
@@ -85,9 +83,7 @@
                                 <li><a class="dropdown-item" href="{{ route('login') }}">登入</a></li>
                                 <li><a class="dropdown-item" href="#">教室課表查詢</a></li>
                                 <li><a class="dropdown-item" href="#">教室資訊查詢</a></li>
-                                <li><a class="dropdown-item" href="#">開課查詢</a></li>
-                                <li><a class="dropdown-item" href="#">歷年開課查詢</a></li>
-                                <li><a class="dropdown-item" href="#">節次時段對照</a></li>
+                                <li><a class="dropdown-item" href="{{ route('session') }}">節次時段對照</a></li>
                             </ul>
                         </div>
                     </li>
