@@ -20,6 +20,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//學生首頁
+Route::get('/student','StudentController@index')->name('student.index');
+
 //後台首頁
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
 
@@ -37,6 +40,7 @@ Route::get('/admin/reservation/create', ['as' => 'admin.book.create', 'uses' => 
 
 //儲存預約教室
 Route::post('/admin', ['as' =>'admin.book.adminstore'  , 'uses' => 'BookController@adminstore']);
+
 
 
 

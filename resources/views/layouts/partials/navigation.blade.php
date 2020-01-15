@@ -1,26 +1,98 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<style>
+    ul {
+        margin:0px;
+        padding:0px;
+    }
+    ul li {
+        list-style-type:none;
+        height:30px;
+        width:100px;
+        float:left;
+        font-size:14px;
+        display:inline;
+    }
+    ul li a {
+        text-decoration:none;
+        font-weight: bold;
+        color:#1f648b;
+        display:block;
+        line-height:29px;
+        padding-left:10px;
+    }
+    ul li a:hover {
+
+    }
+    ul li ul li a:hover {
+
+    }
+    ul li ul {
+        visibility:hidden;
+    }
+    ul li:hover ul {
+        visibility:visible;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="color: #8eb4cb">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="post.html">Sample Post</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </div>
+        <a class="navbar-brand" href="{{ route('student.index') }}" style="color: #1d68a7">NCUT</a>
+        <ul>
+            @if (Route::has('login'))
+                @auth
+                    <li class="nav-item dropdown"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>查詢</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <ul>
+                            <li><a class="dropdown-item" href="#">課表查詢</a></li>
+                            <li><a class="dropdown-item" href="#">教室課表查詢</a></li>
+                            <li><a class="dropdown-item" href="#">教室資訊查詢</a></li>
+                            <li><a class="dropdown-item" href="#">開課查詢</a></li>
+                            <li><a class="dropdown-item" href="#">歷年開課查詢</a></li>
+                            <li><a class="dropdown-item" href="#">節次時段對照</a></li>
+                        </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>預約作業</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <ul>
+                            <li><a class="dropdown-item" href="#">預約教室</a></li>
+                            <li><a class="dropdown-item" href="#">教室使用狀態</a></li>
+                            <li><a class="dropdown-item" href="#">教室預約查詢</a></li>
+                            <li><a class="dropdown-item" href="#">調課</a></li>
+                        </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @else
+                    <li class="nav-item dropdown"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>查詢</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <ul>
+                                <li><a class="dropdown-item" href="{{ route('login') }}">登入</a></li>
+                                <li><a class="dropdown-item" href="#">教室課表查詢</a></li>
+                                <li><a class="dropdown-item" href="#">教室資訊查詢</a></li>
+                                <li><a class="dropdown-item" href="#">開課查詢</a></li>
+                                <li><a class="dropdown-item" href="#">歷年開課查詢</a></li>
+                                <li><a class="dropdown-item" href="#">節次時段對照</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                @endauth
+            @endif
+        </ul>
     </div>
 </nav>
