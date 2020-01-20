@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Item;
+use App\Room;
+use App\User;
+use DB;
+
+use DemeterChain\B;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -81,5 +87,75 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         //
+    }
+
+    public function adminindex()
+    {
+        //
+        $users = User::all();
+        $items = Item::all();
+        $rooms = Room::all();
+        $books = Book::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'books'=>$books];
+        return view('admin.book.index',$data);
+    }
+
+    public function admincreate()
+    {
+        //
+        return view('admin.book.create');
+    }
+
+    public function adminstore(Request $request)
+    {
+        //
+        $user=$request->user();
+        DB::transaction(function () use ($user,$request){
+            $book=new Book;
+            $book->user_id=$user->id;
+            $book->indatetime=$request->indatetime;
+            $book->outdatetime=$request->outdatetime;
+            $book->count=$request->count;
+            $book->reason=$request->reason;
+            $book->save();
+
+            $room_id=$request->name;
+            $item = new Item;
+            $item->book_id = $book->id;
+            $item->room_id = $room_id;
+            $item->save();
+        });
+
+        return redirect()->route('admin.book.index');
+    }
+
+    public function adminshow(Book $book)
+    {
+        //
+        $users = User::all();
+        $items=Item::all();
+        $rooms=Room::orderBy('id')->get();
+        $data=['books'=>$book,'users'=>$users,'items'=>$items,'rooms'=>$rooms];
+        return view('admin.book.delete',$data);
+    }
+
+    public function adminedit($id)
+    {
+        $books=Book::find($id);
+        $data=['books'=>$books];
+        return view('admin.book.edit',$data);
+    }
+
+    public function adminupdate(Request $request,$id)
+    {
+        $books=Book::find($id);
+        $books->update($request->all());
+        return redirect()->route('admin.book.index');
+    }
+
+    public function admindestroy($id)
+    {
+        Book::destroy($id);
+        return redirect()->route('admin.book.index');
     }
 }
