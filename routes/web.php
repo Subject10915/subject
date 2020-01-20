@@ -11,6 +11,8 @@
 |
 */
 
+Route::pattern('id' , '[0-9]+');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,6 +26,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student','StudentController@index')->name('student.index');
 
 
+//查詢-教室課表查詢
+Route::get('/room','RoomController@index')->name('room');
+Route::get('/room/{id}', 'RoomController@show')->name('room.timetable');
 //查詢-節次時段對照
 Route::get('/search/session','StudentController@session')->name('session');
 
