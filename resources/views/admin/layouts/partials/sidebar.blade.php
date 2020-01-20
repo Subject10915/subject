@@ -37,6 +37,15 @@
             <li class="active">
                 <a href="{{ route('admin.dashboard.index') }}"><i class="fa fa-fw fa-dashboard"></i> 後台管理</a>
             </li>
+            <li>
+                <a href="{{ route('admin.status.index') }}"><i class="fa fa-fw fa-edit"></i> 進出教室名單</a>
+            </li>
+            <li>
+                <a href="{{ route('admin.status.search') }}"><i class="fa fa-fw fa-edit"></i> 預約教室查詢</a>
+            </li>
+            <li>
+                <a href="{{ route('admin.book.index') }}"><i class="fa fa-fw fa-edit"></i> 預約教室</a>
+            </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->

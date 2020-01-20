@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use App\Sta;
+use App\Item;
+use App\User;
+use App\Room;
+
 use Illuminate\Http\Request;
 
 class StaController extends Controller
@@ -15,6 +20,23 @@ class StaController extends Controller
     public function index()
     {
         //
+        $users = User::all();
+        $items = Item::all();
+        $rooms = Room::all();
+        $stas = Sta::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'stas'=>$stas];
+        return view('admin.status.index',$data);
+    }
+
+    public function search()
+    {
+        //
+        $users = User::all();
+        $items = Item::all();
+        $rooms = Room::all();
+        $books = Book::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'books'=>$books];
+        return view('admin.status.search',$data);
     }
 
     /**

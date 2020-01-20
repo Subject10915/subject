@@ -53,6 +53,18 @@ Route::get('/admin/reservation/create', ['as' => 'admin.book.create', 'uses' => 
 //儲存預約教室
 Route::post('/admin', ['as' =>'admin.book.adminstore'  , 'uses' => 'BookController@adminstore']);
 
+//編輯預約教室
+Route::get('/admin/reservation/{id}/edit', ['as' => 'admin.book.edit'  , 'uses' => 'BookController@adminedit']);
+
+//更新預約教室
+Route::patch('/admin/reservation/{id}'   , ['as' => 'admin.book.adminupdate', 'uses' => 'BookController@adminupdate']);
+
+//刪除預約教室
+Route::get('/admin/reservation/{books}', 'BookController@adminshow')->name('admin.book.delete');
+Route::delete('/admin/reservation/{id}',['as'=>'admin.book.admindestroy','uses'=>'BookController@admindestroy']);
+
+
+
 
 
 
