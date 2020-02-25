@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            教室管理 <small>預約教室名單</small>
+            預約教室 <small>預約教室名單</small>
         </h1>
         <ol class="breadcrumb">
             <li class="active">
@@ -46,40 +46,42 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($books as $book)
                     @foreach($items as $item)
-                    @foreach($books as $book)
-                    @foreach($users as $user)
-                        @if($user->id==$book->user_id)
-                    @foreach($rooms as $room)
-                        @if($item->room_id==$room->id)
-                    <tr>
-                        <td>{{$book->id}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$room->name}}</td>
-                        <td>{{$book->indatetime}}</td>
-                        <td>{{$book->outdatetime}}</td>
-                        <td>{{$book->count}}</td>
-                        <td>{{$book->reason}}</td>
-                        <td>
-                            <a href="{{route('admin.book.edit',$book->id)}}">
-                                <button type="submit" class="btn btn-success"  style="background-color:#FFFFFF;color:#0000D1;border:3px black">
-                                    編輯
-                                </button>
-                            </a>
-                            /
-                            <a href="/admin/reservation/{{ $book->id }}">
-                                <button type="submit" class="btn btn-success"  style="background-color:#FFFFFF;color:#FF0000;border:3px black">
-                                    刪除
-                                </button>
-                            </a>
-                        </td>
-                    </tr>
+                        @if($book->id==$item->book_id)
+                            @foreach($rooms as $room)
+                                @if($item->room_id==$room->id)
+                                    @foreach($users as $user)
+                                        @if($user->id==$book->user_id)
+                                            <tr>
+                                                <td>{{$book->id}}</td>
+                                                <td>{{$user->name}}</td>
+                                                <td>{{$room->name}}</td>
+                                                <td>{{$book->indatetime}}</td>
+                                                <td>{{$book->outdatetime}}</td>
+                                                <td>{{$book->count}}</td>
+                                                <td>{{$book->reason}}</td>
+                                                <td>
+                                                    <a href="{{route('admin.book.edit',$book->id)}}">
+                                                        <button type="submit" class="btn btn-success"  style="background-color:#FFFFFF;color:#0000D1;border:3px black">
+                                                            編輯
+                                                        </button>
+                                                    </a>
+                                                    /
+                                                    <a href="/admin/reservation/{{ $book->id }}">
+                                                        <button type="submit" class="btn btn-success"  style="background-color:#FFFFFF;color:#FF0000;border:3px black">
+                                                            刪除
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            @endforeach
                         @endif
                     @endforeach
-                        @endif
-                    @endforeach
-                    @endforeach
-                    @endforeach
+                @endforeach
                 </tbody>
             </table>
         </div>

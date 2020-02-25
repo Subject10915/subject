@@ -17,7 +17,6 @@
     </div>
 </div>
 <!-- /.row -->
-@include('admin.layouts.partials.validation')
 
 <div class="row">
     <div class="col-lg-12">
@@ -27,12 +26,12 @@
 
             <div class="form-group">
                 <label>預約日期時間：</label>
-                <input type="datetime-local" name="indatetime" value="{{$books->indatetime}}">
+                <input type="text" name="indatetime" value="{{$books->indatetime}}">
             </div>
 
             <div class="form-group">
                 <label>預計離開時間：</label>
-                <input type="datetime-local" name="outdatetime" value="{{$books->outdatetime}}">
+                <input type="text" name="outdatetime" value="{{$books->outdatetime}}">
             </div>
 
             <div class="form-group">
