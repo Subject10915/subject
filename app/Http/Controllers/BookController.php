@@ -129,13 +129,14 @@ class BookController extends Controller
         return redirect()->route('admin.book.index');
     }
 
-    public function adminshow(Book $book)
+    public function adminshow($id)
     {
         //
+        $books=Book::find($id);
         $users = User::all();
         $items=Item::all();
         $rooms=Room::orderBy('id')->get();
-        $data=['books'=>$book,'users'=>$users,'items'=>$items,'rooms'=>$rooms];
+        $data=['books'=>$books,'users'=>$users,'items'=>$items,'rooms'=>$rooms];
         return view('admin.book.delete',$data);
     }
 

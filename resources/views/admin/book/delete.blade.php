@@ -32,6 +32,7 @@
                 <th style="text-align: center">借用教室原因</th>
             </tr>
             </thead>
+            <tbody>
             @foreach($items as $item)
                 @if($item->book_id==$books->id)
             @foreach($users as $user)
@@ -53,6 +54,7 @@
             @endforeach
                 @endif
             @endforeach
+            </tbody>
         </table>
         <div class="text-right">
             <form action="/admin/reservation/{{$books->id}}" method="POST">

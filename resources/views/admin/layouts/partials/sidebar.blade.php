@@ -12,24 +12,20 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 管理員 <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="font-size: large;">
+                        <a class="btn btn-secondary dropdown-toggle" style="width:200px;;font-size:large" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                            @csrf
+                        </form>
+                    </div>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                </li>
-            </ul>
-        </li>
     </ul>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">

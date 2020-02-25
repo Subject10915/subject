@@ -21,10 +21,9 @@ class StaController extends Controller
     {
         //
         $users = User::all();
-        $items = Item::all();
         $rooms = Room::all();
         $stas = Sta::orderBy('id')->get();
-        $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'stas'=>$stas];
+        $data = ['rooms'=>$rooms,'users'=>$users,'stas'=>$stas];
         return view('admin.status.index',$data);
     }
 
@@ -66,9 +65,25 @@ class StaController extends Controller
      * @param  \App\Sta  $sta
      * @return \Illuminate\Http\Response
      */
-    public function show(Sta $sta)
+    public function indexshow(Request $request)
     {
         //
+        $users = User::all();
+        $rooms = Room::all();
+        $stas = Sta::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'stas'=>$stas];
+        return view('admin.status.indexshow',$data);
+    }
+
+    public function searchshow(Request $request)
+    {
+        //
+        $users = User::all();
+        $items = Item::all();
+        $rooms = Room::all();
+        $books = Book::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'books'=>$books];
+        return view('admin.status.searchshow',$data);
     }
 
     /**

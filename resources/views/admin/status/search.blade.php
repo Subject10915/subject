@@ -4,10 +4,14 @@
 
 @section('content')
 <!-- Page Heading -->
+
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            查詢 <small>預約教室查詢</small>
+            查詢
+                <small>
+                    所有預約教室查詢
+                </small>
         </h1>
         <ol class="breadcrumb">
             <li class="active">
@@ -21,8 +25,10 @@
 <div class="row" style="margin-bottom: 20px; text-align: right">
     <span style="font-size:large;">
     <body>
+    <form action="{{ route('admin.status.searchshow') }}" method="POST" role="form">
+            {{ csrf_field() }}
         <label>教室名稱：</label>
-            <select name="name">
+            <select name="select">
                 <option value=" "> </option>
                 <option value="1">M501</option>
                 <option value="2">M502</option>
@@ -32,9 +38,10 @@
                 <option value="6">M514</option>
                 <option value="7">M510B</option>
             </select>
-                <a href="javascript:;" onclick="document.getElementById('d1').style.display=''">
-                    查詢
-                </a>
+            <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">
+                查詢
+            </button>
+    </form>
     </body>
     </span>
 </div>
@@ -55,36 +62,35 @@
                     </tr>
                 </thead>
             <tbody>
-            @foreach($items as $item)
             @foreach($books as $book)
-            @foreach($users as $user)
-                @if($user->id==$book->user_id)
-            @foreach($rooms as $room)
-                @if($item->room_id==$room->id)
-                    <tr>
-                        <td>{{$book->id}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$room->name}}</td>
-                        <td>{{$book->indatetime}}</td>
-                        <td>{{$book->outdatetime}}</td>
-                        <td>{{$book->reason}}</td>
-                    </tr>
-                @endif
-            @endforeach
-                @endif
-            @endforeach
-            @endforeach
+                @foreach($items as $item)
+                    @if($book->id==$item->book_id)
+                        @foreach($rooms as $room)
+                            @if($item->room_id==$room->id)
+                                @foreach($users as $user)
+                                    @if($user->id==$book->user_id)
+                                <tr>
+                                    <td>{{$book->id}}</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$room->name}}</td>
+                                    <td>{{$book->indatetime}}</td>
+                                    <td>{{$book->outdatetime}}</td>
+                                    <td>{{$book->reason}}</td>
+                                </tr>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    @endif
+                @endforeach
             @endforeach
             </tbody>
             </table>
         </div>
     </div>
 </div>
-<!-- /.row -->
 
-<div id="d1" style="display: none">
-    ABC
-</div>
+<!-- /.row -->
 
 
 <!-- /.row -->
