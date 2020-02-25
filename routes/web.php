@@ -36,8 +36,14 @@ Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminControlle
 //進出教室名單
 Route::get('/admin/status', ['as' => 'admin.status.index', 'uses' => 'StaController@index']);
 
+//進出選擇教室查詢
+Route::post('/admin/status/class', ['as' => 'admin.status.indexshow', 'uses' => 'StaController@indexshow']);
+
 //預約教室查詢
 Route::get('/admin/search', ['as' => 'admin.status.search', 'uses' => 'StaController@search']);
+
+//進出選擇預約教室查詢
+Route::post('/admin/search/class', ['as' => 'admin.status.searchshow', 'uses' => 'StaController@searchshow']);
 
 //預約教室
 Route::get('/admin/reservation', ['as' => 'admin.book.index', 'uses' => 'BookController@adminindex']);
