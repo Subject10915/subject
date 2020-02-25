@@ -75,7 +75,16 @@ class StaController extends Controller
         return view('admin.status.indexshow',$data);
     }
 
-    
+    public function searchshow(Request $request)
+    {
+        //
+        $users = User::all();
+        $items = Item::all();
+        $rooms = Room::all();
+        $books = Book::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'books'=>$books];
+        return view('admin.status.searchshow',$data);
+    }
 
     /**
      * Show the form for editing the specified resource.
