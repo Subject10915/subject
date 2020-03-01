@@ -59,7 +59,8 @@ class BookController extends Controller
             $item->room_id = $room_id;
             $item->save();
         });
-        return redirect()->route('book');
+        return view('books.bookok');
+
     }
 
     /**
