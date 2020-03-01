@@ -16,6 +16,9 @@ Route::pattern('id' , '[0-9]+');
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/test', function () {
+    return view('test');
+});
 
 //使用者認證
 Auth::routes();
@@ -31,11 +34,11 @@ Route::get('/room','RoomController@index')->name('room');
 Route::get('/room/{id}', 'RoomController@show')->name('room.timetable');
 //查詢-節次時段對照
 Route::get('/search/session','StudentController@session')->name('session');
-
-
+//預約教室
+Route::get('/book', 'BookController@index')->name('book');
+Route::post('/book/store', 'BookController@store')->name('book.store');
 
 //後台首頁
-
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
 
 //進出教室名單

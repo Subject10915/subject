@@ -43,7 +43,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <ul>
                             <li><a class="dropdown-item" href="#">課表查詢</a></li>
-                            <li><a class="dropdown-item" href="#">教室課表查詢</a></li>
+                            <li><a class="dropdown-item" href="{{ route('room') }}">教室課表查詢</a></li>
                             <li><a class="dropdown-item" href="#">教室資訊查詢</a></li>
                             <li><a class="dropdown-item" href="{{ route('session') }}">節次時段對照</a></li>
                         </ul>
@@ -52,7 +52,7 @@
                     <li class="nav-item dropdown"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>預約作業</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <ul>
-                            <li><a class="dropdown-item" href="#">預約教室</a></li>
+                            <li><a class="dropdown-item" href="{{ route('book') }}">預約教室</a></li>
                             <li><a class="dropdown-item" href="#">教室使用狀態</a></li>
                             <li><a class="dropdown-item" href="#">教室預約查詢</a></li>
                             <li><a class="dropdown-item" href="#">調課</a></li>
@@ -81,7 +81,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <ul>
                                 <li><a class="dropdown-item" href="{{ route('login') }}">登入</a></li>
-                                <li><a class="dropdown-item" href="#">教室課表查詢</a></li>
+                                <li><a class="dropdown-item" href="{{ route('room') }}">教室課表查詢</a></li>
                                 <li><a class="dropdown-item" href="#">教室資訊查詢</a></li>
                                 <li><a class="dropdown-item" href="{{ route('session') }}">節次時段對照</a></li>
                             </ul>

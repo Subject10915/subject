@@ -21,6 +21,7 @@ class BookController extends Controller
     public function index()
     {
         //
+        return view('books.index');
     }
 
     /**
@@ -42,6 +43,23 @@ class BookController extends Controller
     public function store(Request $request)
     {
         //
+        $user=$request->user();
+        DB::transaction(function () use ($user,$request){
+            $book=new Book;
+            $book->user_id=$user->id;
+            $book->indatetime=$request->indatetime;
+            $book->outdatetime=$request->outdatetime;
+            $book->count=$request->count;
+            $book->reason=$request->reason;
+            $book->save();
+
+            $room_id=$request->name;
+            $item = new Item;
+            $item->book_id = $book->id;
+            $item->room_id = $room_id;
+            $item->save();
+        });
+        return redirect()->route('book');
     }
 
     /**
