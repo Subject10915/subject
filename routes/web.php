@@ -29,7 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student','StudentController@index')->name('student.index');
 
 
-//查詢-教室課表查詢
+//查詢-教室課表查詢//未完成
 Route::get('/room','RoomController@index')->name('room');
 Route::get('/room/{id}', 'RoomController@show')->name('room.timetable');
 //查詢-節次時段對照
@@ -37,6 +37,10 @@ Route::get('/search/session','StudentController@session')->name('session');
 //預約教室
 Route::get('/book', 'BookController@index')->name('book');
 Route::post('/book/store', 'BookController@store')->name('book.store');
+//預約教室查詢
+Route::get('/book/search', 'BookController@search')->name('book.search');
+Route::post('/book/search/show', 'BookController@show')->name('book.show');
+
 
 //後台首頁
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);

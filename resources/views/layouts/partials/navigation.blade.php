@@ -54,7 +54,7 @@
                         <ul>
                             <li><a class="dropdown-item" href="{{ route('book') }}">預約教室</a></li>
                             <li><a class="dropdown-item" href="#">教室使用狀態</a></li>
-                            <li><a class="dropdown-item" href="#">教室預約查詢</a></li>
+                            <li><a class="dropdown-item" href="{{ route('book.search') }}">教室預約查詢</a></li>
                             <li><a class="dropdown-item" href="#">調課</a></li>
                         </ul>
                         </div>

@@ -69,9 +69,15 @@ class BookController extends Controller
      * @param  \App\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show(Request $request)
     {
         //
+        $users = User::all();
+        $items = Item::all();
+        $rooms = Room::all();
+        $books = Book::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'books'=>$books];
+        return view('books.booksearchshow',$data);
     }
 
     /**
@@ -106,6 +112,17 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         //
+    }
+
+    public function search()
+    {
+        //
+        $users = User::all();
+        $items = Item::all();
+        $rooms = Room::all();
+        $books = Book::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'books'=>$books];
+        return view('books.roombook',$data);
     }
 
     public function adminindex()
