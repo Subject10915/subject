@@ -40,6 +40,9 @@ Route::post('/book/store', 'BookController@store')->name('book.store');
 //預約教室查詢
 Route::get('/book/search', 'BookController@search')->name('book.search');
 Route::post('/book/search/show', 'BookController@show')->name('book.show');
+//教室使用狀態查詢
+Route::get('/room/sta', 'BookController@roomsta')->name('room.sta');
+Route::post('/room/sta/show', 'BookController@roomstashow')->name('room.sta.show');
 
 
 //後台首頁

@@ -6,6 +6,7 @@ use App\Book;
 use App\Item;
 use App\Room;
 use App\User;
+use App\Sta;
 use DB;
 
 use DemeterChain\B;
@@ -123,6 +124,26 @@ class BookController extends Controller
         $books = Book::orderBy('id')->get();
         $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'books'=>$books];
         return view('books.roombook',$data);
+    }
+
+    public function roomsta()
+    {
+        //
+        $users = User::all();
+        $rooms = Room::all();
+        $stas = Sta::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'stas'=>$stas];
+        return view('books.roomsta',$data);
+    }
+
+    public function roomstashow(Request $request)
+    {
+        //
+        $users = User::all();
+        $rooms = Room::all();
+        $stas = Sta::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'stas'=>$stas];
+        return view('books.roomstashow',$data);
     }
 
     public function adminindex()
