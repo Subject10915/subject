@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Student;
+use App\User;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -48,6 +49,10 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         //
+        $users = User::all();
+        $students = Student::orderBy('id')->get();
+        $data = ['students'=>$students,'users'=>$users];
+        return view('students.timetable',$data);
     }
 
     /**

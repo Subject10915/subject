@@ -46,6 +46,9 @@ Route::post('/room/sta/show', 'BookController@roomstashow')->name('room.sta.show
 //調課
 Route::get('/book/transfer', 'BookController@transfer')->name('book.transfer');
 Route::post('/book/transfer/store', 'BookController@transferstore')->name('book.transfer.store');
+//學生課表查詢
+Route::get('/student/timetable','StudentController@show')->name('student.timetable');
+
 
 //後台首頁
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
