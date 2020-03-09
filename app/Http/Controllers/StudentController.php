@@ -89,4 +89,5 @@ class StudentController extends Controller
         //查詢-節次時段對照
         return view('searchs.session');
     }
+
 }

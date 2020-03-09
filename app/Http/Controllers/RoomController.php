@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Room;
+use App\User;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -14,7 +15,11 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        //查詢-教室課表查詢
+        $users = User::all();
+        $rooms = Room::all();
+        $data = ['rooms'=>$rooms,'users'=>$users];
+        return view('searchs.index',$data);
     }
 
     /**
@@ -44,9 +49,12 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function show(Room $room)
+    public function show(Request $request)
     {
-        //
+        $users = User::all();
+        $rooms = Room::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users];
+        return view('searchs.roomshow',$data);
     }
 
     /**
