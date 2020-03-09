@@ -43,7 +43,9 @@ Route::post('/book/search/show', 'BookController@show')->name('book.show');
 //教室使用狀態查詢
 Route::get('/room/sta', 'BookController@roomsta')->name('room.sta');
 Route::post('/room/sta/show', 'BookController@roomstashow')->name('room.sta.show');
-
+//調課
+Route::get('/book/transfer', 'BookController@transfer')->name('book.transfer');
+Route::post('/book/transfer/store', 'BookController@transferstore')->name('book.transfer.store');
 
 //後台首頁
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
