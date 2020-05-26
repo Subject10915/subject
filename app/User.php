@@ -58,4 +58,8 @@ class User extends Authenticatable
         return $this->hasMany(Sta::class);
     }
 
+    public function changes()
+    {
+        return $this->hasMany(Change::class);
+    }
 }

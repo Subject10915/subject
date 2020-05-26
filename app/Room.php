@@ -16,4 +16,9 @@ class Room extends Model
     {
         return $this->hasMany(Sta::class);
     }
+
+    public function changes()
+    {
+        return $this->hasMany(Change::class);
+    }
 }
