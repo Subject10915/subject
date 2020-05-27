@@ -21,4 +21,9 @@ class Room extends Model
     {
         return $this->hasMany(Change::class);
     }
+
+    public function classtimetables()
+    {
+        return $this->hasMany(Classtimetable::class);
+    }
 }
