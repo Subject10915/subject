@@ -15,8 +15,7 @@ class ChangeCoursesTable extends Migration
     {
         //
         Schema::table('courses', function (Blueprint $table) {
-            $table->unsignedBigInteger('room_id')->after('grade_id');
-            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
+
         });
     }
 
@@ -29,7 +28,7 @@ class ChangeCoursesTable extends Migration
     {
         //
         Schema::table('courses', function (Blueprint $table) {
-            $table->dropColumn('room_id');
+
         });
     }
 }
