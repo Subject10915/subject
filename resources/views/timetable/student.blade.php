@@ -12,7 +12,6 @@
         </table>
     </header>
 
-
     <body style="background-color:#b0d4f1;">
     <center>
         <table style="width: 90%">
@@ -44,7 +43,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -64,7 +65,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -84,7 +87,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -104,7 +109,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -124,7 +131,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -144,7 +153,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -164,7 +175,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -188,7 +201,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -208,7 +223,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -228,7 +245,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -248,7 +267,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -268,7 +289,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -288,7 +311,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -308,7 +333,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -332,7 +359,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -352,7 +381,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -372,7 +403,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -392,7 +425,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -412,7 +447,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -432,7 +469,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -452,7 +491,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -476,7 +517,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -496,7 +539,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -516,7 +561,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -536,7 +583,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -556,7 +605,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -576,7 +627,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -596,7 +649,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -620,7 +675,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -640,7 +697,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -660,7 +719,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -680,7 +741,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -700,7 +763,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -720,7 +785,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -740,7 +807,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -764,7 +833,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -784,7 +855,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -804,7 +877,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -824,7 +899,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -844,7 +921,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -864,7 +943,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -884,7 +965,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -908,7 +991,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -928,7 +1013,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -948,7 +1035,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -968,7 +1057,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -988,7 +1079,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -1008,7 +1101,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -1028,7 +1123,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -1052,7 +1149,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -1072,7 +1171,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -1092,7 +1193,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -1112,7 +1215,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -1132,7 +1237,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -1152,7 +1259,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif
@@ -1172,7 +1281,9 @@
                                         @if($studentitem->course_id==$course->id)
                                             @foreach($users as $user)
                                                 @if($user->id==$stutimetable->user_id)
-                                                    <label>{{$course->name}}</label>
+                                                    @if($stutimetable->user_id == Auth::user()->id)
+                                                        <label>{{$course->name}}</label>
+                                                    @endif
                                                 @endif
                                             @endforeach
                                         @endif

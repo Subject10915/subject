@@ -14,7 +14,7 @@ class StutimetableController extends Controller
     public function index()
     {
         $users = User::all();
-        $studentitems = Studentitem::orderBy('id')->get();
+        $studentitems = Studentitem::all();
         $courses = Course::all();
         $stutimetables = StuTimetable::orderBy('id')->get();
         $data = ['studentitems'=>$studentitems,'users'=>$users,'courses'=>$courses,'stutimetables'=>$stutimetables];
