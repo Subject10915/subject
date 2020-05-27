@@ -62,4 +62,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Change::class);
     }
+
+    public function stutimetables()
+    {
+        return $this->hasMany(StuTimetable::class);
+    }
+
 }
