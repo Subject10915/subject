@@ -32,6 +32,7 @@ Route::get('/student','StudentController@index')->name('student.index');
 //查詢-教室課表查詢
 Route::get('/room','RoomController@index')->name('room');
 Route::post('/room/show', 'RoomController@show')->name('room.timetable.show');
+Route::post('/classtimetable', 'ClasstimetableController@show')->name('classtimetable.show');
 //查詢-節次時段對照
 Route::get('/search/session','StudentController@session')->name('session');
 //預約教室

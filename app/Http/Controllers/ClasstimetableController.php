@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Classitem;
 use App\Classtimetable;
+use App\Room;
+use App\Course;
 use Illuminate\Http\Request;
 
 class ClasstimetableController extends Controller
@@ -15,6 +18,7 @@ class ClasstimetableController extends Controller
     public function index()
     {
         //
+        return view('searchs.index');
     }
 
     /**
@@ -47,6 +51,12 @@ class ClasstimetableController extends Controller
     public function show(Classtimetable $classtimetable)
     {
         //
+        $rooms =Room::all();
+        $classitems = Classitem::all();
+        $courses = Course::all();
+        $classtimetables = Classtimetable::orderBy('id')->get();
+        $data = ['classitems'=>$classitems,'rooms'=>$rooms,'courses'=>$courses,'classtimetables'=>$classtimetables];
+        return view('timetable.class',$data);
     }
 
     /**

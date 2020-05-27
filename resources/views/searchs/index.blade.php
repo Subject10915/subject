@@ -20,7 +20,7 @@
                     <td><h1>教室課表查詢</h1></td>
                 </tr>
             </table>
-            <form action="{{ route('room.timetable.show') }}" method="POST" role="form">
+            <form action="{{ route('classtimetable.show') }}" method="POST" role="form">
                 {{ csrf_field() }}
                 <table border="1" style="width: 70%">
                     <tr style="height: 40px" bgcolor="#fafad2">
