@@ -42,7 +42,7 @@
                     <li class="nav-item dropdown"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>查詢</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <ul>
-                            <li><a class="dropdown-item" href="{{ route('student.timetable') }}">課表查詢</a></li>
+                            <li><a class="dropdown-item" href="{{ route('stutimetable') }}">課表查詢</a></li>
                             <li><a class="dropdown-item" href="{{ route('room') }}">教室課表查詢</a></li>
                             <li><a class="dropdown-item" href="#">教室資訊查詢</a></li>
                             <li><a class="dropdown-item" href="{{ route('session') }}">節次時段對照</a></li>
@@ -55,7 +55,8 @@
                             <li><a class="dropdown-item" href="{{ route('book') }}">預約教室</a></li>
                             <li><a class="dropdown-item" href="{{ route('room.sta') }}">教室使用狀態</a></li>
                             <li><a class="dropdown-item" href="{{ route('book.search') }}">教室預約查詢</a></li>
-                            <li><a class="dropdown-item" href="{{ route('book.transfer') }}">調課</a></li>
+                            <li><a class="dropdown-item" href="{{ route('change') }}">調課</a></li>
+                            <li><a class="dropdown-item" href="{{ route('change.show') }}">調課申請查詢</a></li>
                         </ul>
                         </div>
                     </li>

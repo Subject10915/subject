@@ -44,10 +44,11 @@ Route::post('/book/search/show', 'BookController@show')->name('book.show');
 Route::get('/room/sta', 'BookController@roomsta')->name('room.sta');
 Route::post('/room/sta/show', 'BookController@roomstashow')->name('room.sta.show');
 //調課
-Route::get('/book/transfer', 'BookController@transfer')->name('book.transfer');
-Route::post('/book/transfer/store', 'BookController@transferstore')->name('book.transfer.store');
+Route::get('/change', 'ChangeController@index')->name('change');
+Route::post('/change/store', 'ChangeController@store')->name('change.store');
+Route::get('/change/show', 'ChangeController@show')->name('change.show');
 //學生課表查詢
-Route::get('/student/timetable','StudentController@show')->name('student.timetable');
+Route::get('/stutimetable','StutimetableController@index')->name('stutimetable');
 
 
 //後台首頁
