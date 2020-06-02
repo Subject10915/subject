@@ -44,7 +44,6 @@
                         <ul>
                             <li><a class="dropdown-item" href="{{ route('stutimetable') }}">課表查詢</a></li>
                             <li><a class="dropdown-item" href="{{ route('room') }}">教室課表查詢</a></li>
-                            <li><a class="dropdown-item" href="#">教室資訊查詢</a></li>
                             <li><a class="dropdown-item" href="{{ route('session') }}">節次時段對照</a></li>
                         </ul>
                         </div>
@@ -53,6 +52,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <ul>
                             <li><a class="dropdown-item" href="{{ route('book') }}">預約教室</a></li>
+                            <li><a class="dropdown-item" href="{{ route('book.ownshow') }}">預約教室紀錄</a></li>
                             <li><a class="dropdown-item" href="{{ route('room.sta') }}">教室使用狀態</a></li>
                             <li><a class="dropdown-item" href="{{ route('book.search') }}">教室預約查詢</a></li>
                             <li><a class="dropdown-item" href="{{ route('change') }}">調課</a></li>

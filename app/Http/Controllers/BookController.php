@@ -109,6 +109,17 @@ class BookController extends Controller
         return view('books.booksearchshow',$data);
     }
 
+    public function ownshow(Request $request)
+    {
+        //
+        $users = User::all();
+        $items = Item::all();
+        $rooms = Room::all();
+        $books = Book::orderBy('id')->get();
+        $data = ['rooms'=>$rooms,'users'=>$users,'items'=>$items,'books'=>$books];
+        return view('searchs.book',$data);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

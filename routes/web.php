@@ -38,6 +38,7 @@ Route::get('/search/session','StudentController@session')->name('session');
 //預約教室
 Route::get('/book', 'BookController@index')->name('book');
 Route::post('/book/store', 'BookController@store')->name('book.store');
+Route::get('/book/show', 'BookController@ownshow')->name('book.ownshow');
 //預約教室查詢
 Route::get('/book/search', 'BookController@search')->name('book.search');
 Route::post('/book/search/show', 'BookController@show')->name('book.show');
@@ -46,6 +47,8 @@ Route::get('/room/sta', 'BookController@roomsta')->name('room.sta');
 Route::post('/room/sta/show', 'BookController@roomstashow')->name('room.sta.show');
 //調課
 Route::get('/change', 'ChangeController@index')->name('change');
+Route::get('/change/{id}/{course}', 'ChangeController@change')->name('change.change');
+Route::post('/change/check', 'ChangeController@check')->name('change.check');
 Route::post('/change/store', 'ChangeController@store')->name('change.store');
 Route::get('/change/show', 'ChangeController@show')->name('change.show');
 //學生課表查詢
