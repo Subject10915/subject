@@ -77,7 +77,7 @@ Route::get('/admin/reservation', ['as' => 'admin.book.index', 'uses' => 'BookCon
 Route::get('/admin/reservation/create', ['as' => 'admin.book.create', 'uses' => 'BookController@admincreate']);
 
 //儲存預約教室
-Route::post('/admin', ['as' =>'admin.book.adminstore'  , 'uses' => 'BookController@adminstore']);
+Route::post('admin/reservation/store', 'BookController@adminstore')->name('admin.book.adminstore');
 
 //編輯預約教室
 Route::get('/admin/reservation/{id}/edit', ['as' => 'admin.book.edit'  , 'uses' => 'BookController@adminedit']);
@@ -88,6 +88,25 @@ Route::patch('/admin/reservation/{id}'   , ['as' => 'admin.book.adminupdate', 'u
 //刪除預約教室
 Route::get('/admin/reservation/{books}', 'BookController@adminshow')->name('admin.book.delete');
 Route::delete('/admin/reservation/{id}',['as'=>'admin.book.admindestroy','uses'=>'BookController@admindestroy']);
+
+//調課
+Route::get('/admin/change', ['as' => 'admin.change.index', 'uses' => 'ChangeController@adminindex']);
+
+//新增調課
+Route::get('/admin/change/create', ['as' => 'admin.change.create', 'uses' => 'ChangeController@admincreate']);
+
+//儲存調課
+Route::post('/admin', ['as' =>'admin.change.adminstore'  , 'uses' => 'ChangeController@adminstore']);
+
+//編輯調課
+Route::get('/admin/change/{id}/edit', ['as' => 'admin.change.edit'  , 'uses' => 'ChangeController@adminedit']);
+
+//更新調課
+Route::patch('/admin/change/{id}'   , ['as' => 'admin.change.adminupdate', 'uses' => 'ChangeController@adminupdate']);
+
+//刪除調課
+Route::get('/admin/change/{changes}', 'ChangeController@adminshow')->name('admin.change.delete');
+Route::delete('/admin/change/{id}',['as'=>'admin.change.admindestroy','uses'=>'ChangeController@admindestroy']);
 
 
 
