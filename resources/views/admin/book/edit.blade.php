@@ -24,29 +24,39 @@
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
 
-            <div class="form-group">
-                <label>預約日期時間：</label>
-                <input type="text" name="indatetime" value="{{$books->indatetime}}">
-            </div>
+            <table>
+                <tr>
+                    <div class="form-group">
+                        <label>預約日期時間：</label>
+                        <input type="text" name="indatetime" class="form-control" value="{{$books->indatetime}}">
+                    </div>
+                </tr>
 
-            <div class="form-group">
-                <label>預計離開時間：</label>
-                <input type="text" name="outdatetime" value="{{$books->outdatetime}}">
-            </div>
+                <tr>
+                    <div class="form-group">
+                        <label>預計離開時間：</label>
+                        <input type="text" name="outdatetime" class="form-control" value="{{$books->outdatetime}}">
+                    </div>
+                </tr>
 
-            <div class="form-group">
-                <label>借用人數：</label>
-                <input type="text" name="count" value="{{$books->count}}">
-            </div>
+                <tr>
+                    <div class="form-group">
+                        <label>借用人數：</label>
+                        <input type="text" name="count" class="form-control" value="{{$books->count}}">
+                    </div>
+                </tr>
 
-            <div class="form-group">
-                <label>借用教室原因：</label>
-                <select name="reason" value="{{$books->reason}}">
-                    <option value="0">上課</option>
-                    <option value="1">個人</option>
-                </select>
+                <tr>
+                    <div class="form-group">
+                        <label>借用教室原因：</label>
+                        <select name="reason" class="form-control" value="{{$books->reason}}">
+                            <option value="0">上課</option>
+                            <option value="1">個人</option>
+                        </select>
 
-            </div>
+                    </div>
+                </tr>
+            </table>
 
             <div class="text-right">
                 <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">更新</button>

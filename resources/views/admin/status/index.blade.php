@@ -32,6 +32,11 @@
                 <option value="5">M513</option>
                 <option value="6">M514</option>
                 <option value="7">M510B</option>
+                <option value="8">M419</option>
+                <option value="9">國秀樓010教室</option>
+                <option value="10">文化休閒館CRB02</option>
+                <option value="11">國秀樓403教室</option>
+                <option value="12">國秀樓509教室</option>
             </select>
             <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">
                 送出
