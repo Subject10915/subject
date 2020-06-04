@@ -42,6 +42,9 @@
             <li>
                 <a href="{{ route('admin.book.index') }}"><i class="fa fa-fw fa-edit"></i> 預約教室</a>
             </li>
+            <li>
+                <a href="{{ route('admin.change.index') }}"><i class="fa fa-fw fa-edit"></i> 調課管理</a>
+            </li>
         </ul>
     </div>
     <!-- /.navbar-collapse -->
