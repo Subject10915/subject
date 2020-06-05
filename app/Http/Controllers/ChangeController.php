@@ -133,8 +133,7 @@ class ChangeController extends Controller
     {
         $status =$request->reason;
         Change::where('id',$id)->update(['status'=>$status]);
-        /*$changes=Change::find($id);
-        $changes->update($request->all());*/
+
         return redirect()->route('admin.change.index');
     }
 
