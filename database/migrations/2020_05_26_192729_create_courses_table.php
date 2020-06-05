@@ -22,6 +22,8 @@ class CreateCoursesTable extends Migration
             $table->boolean('compulsory'); //必修=0 選修=1
             $table->unsignedBigInteger('grade_id'); //開課班級
             $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
+            $table->unsignedBigInteger('room_id'); //教室
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->string('note')->nullable('true');
             $table->timestamps();
         });
