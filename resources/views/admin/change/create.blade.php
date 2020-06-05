@@ -131,7 +131,10 @@
                 <tr>
                     <div class="form-group">
                         <label>審核狀態：</label>
-                        <input name="status" class="form-control" value="1" >
+                        <select name="status" class="form-control" >
+                            <option value=" "> </option>
+                            <option value="1">通過</option>
+                        </select>
                     </div>
                 </tr>
             </table>
