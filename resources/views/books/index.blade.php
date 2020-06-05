@@ -36,7 +36,9 @@
                             <option value="4">M511</option>
                             <option value="5">M513</option>
                             <option value="6">M514</option>
+                            <option value="8">M419</option>
                             <option value="7">M510B</option>
+                            <option value="13">M510A</option>
                         </select>
                     </td>
                 </tr>
