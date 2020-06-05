@@ -22,6 +22,8 @@ class CreateStasTable extends Migration
             $table->dateTime('indaretime');
             $table->dateTime('outdatetime');
             $table->string('immediate');
+            $table->integer('door');
+            $table->integer('buzzer');
             $table->timestamps();
         });
     }
