@@ -131,8 +131,10 @@ class ChangeController extends Controller
 
     public function adminupdate(Request $request,$id)
     {
-        $changes=Change::find($id);
-        $changes->update($request->all());
+        $status =$request->reason;
+        Change::where('id',$id)->update(['status'=>$status]);
+        /*$changes=Change::find($id);
+        $changes->update($request->all());*/
         return redirect()->route('admin.change.index');
     }
 
