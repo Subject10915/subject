@@ -24,17 +24,62 @@
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
 
-            <table>
+            <table class="table table-bordered table-hover">
+                <thead>
                 <tr>
-                    <div class="form-group">
-                        <label>審核管理：</label>
-                        <select name="reason" class="form-control" value="{{$changes->status}}">
-                            <option value="0">審核中</option>
-                            <option value="1">通過</option>
-                            <option value="2">未通過</option>
-                        </select>
-                    </div>
+                    <th style="text-align: center">編號</th>
+                    <th style="text-align: center">申請人姓名</th>
+                    <th style="text-align: center">教室名稱</th>
+                    <th style="text-align: center">課程名稱</th>
+                    <th style="text-align: center">授課教師</th>
+                    <th style="text-align: center">異動前日期</th>
+                    <th style="text-align: center">異動前節次</th>
+                    <th style="text-align: center">異動後日期</th>
+                    <th style="text-align: center">異動後節次</th>
+                    <th style="text-align: center">審核狀態</th>
+                    <th style="text-align: center">調課管理</th>
                 </tr>
+                </thead>
+                <tbody>
+                @foreach($users as $user)
+                    @if($user->id==$changes->user_id)
+                        @foreach($rooms as $room)
+                            @if($changes->room_id==$room->id)
+                                @foreach($courses as $course)
+                                    @if($changes->course_id==$course->id)
+                                        <tr>
+                                            <td>{{$changes->id}}</td>
+                                            <td>{{$user->name}}</td>
+                                            <td>{{$room->name}}</td>
+                                            <td>{{$course->name}}</td>
+                                            <td>{{$course->teacher}}</td>
+                                            <td>{{$changes->before_day}}</td>
+                                            <td>{{$changes->before_session}}</td>
+                                            <td>{{$changes->after_day}}</td>
+                                            <td>{{$changes->after_session}}</td>
+                                            @if($changes->status=="0")
+                                                <td>審核中</td>
+                                            @elseif($changes->status=="1")
+                                                <td>通過</td>
+                                            @elseif($changes->status=="2")
+                                                <td>未通過</td>
+                                            @endif
+                                            <td>
+                                                <select name="status" class="form-control" value="{{$changes->status}}">
+                                                    <option value=" "> </option>
+                                                    <option value="0">審核中</option>
+                                                    <option value="1">通過</option>
+                                                    <option value="2">未通過</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    @endif
+                @endforeach
+                </tbody>
             </table>
 
             <div class="text-right">
