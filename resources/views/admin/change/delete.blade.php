@@ -9,11 +9,13 @@
         <h1 class="page-header">
             確認刪除 <small>您是否確定刪除該筆資料</small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
                 <i class="fa fa-edit"></i> 確認刪除
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->

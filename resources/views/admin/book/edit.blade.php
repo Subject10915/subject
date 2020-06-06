@@ -9,11 +9,13 @@
         <h1 class="page-header">
             編輯預約 <small>修改編輯預約教室</small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
                 <i class="fa fa-edit"></i> 教室管理
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->

@@ -12,11 +12,13 @@
                     該教室預約查詢
                 </small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
                 <i class="fa fa-edit"></i> 查詢
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->
