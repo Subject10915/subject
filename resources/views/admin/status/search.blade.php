@@ -13,11 +13,13 @@
                     所有預約教室查詢
                 </small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-edit"></i> 查詢
+                <i class="fa fa-dashboard"></i> 查詢
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->
@@ -97,6 +99,11 @@
 
 <!-- /.row -->
 
+<div class="text-right">
+    <form action="{{ route('admin.dashboard.index')}}" method="GET">
+        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">回首頁</button>
+    </form>
+</div>
 
 <!-- /.row -->
 

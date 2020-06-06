@@ -9,11 +9,13 @@
         <h1 class="page-header">
             進出教室管理 <small>所有進出教室名單</small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-edit"></i> 進出教室管理
+                <i class="fa fa-dashboard"></i> 進出教室管理
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->
@@ -89,6 +91,11 @@
 
 <!-- /.row -->
 
+<div class="text-right">
+    <form action="{{ route('admin.dashboard.index')}}" method="GET">
+        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">回首頁</button>
+    </form>
+</div>
 
 <!-- /.row -->
 @endsection

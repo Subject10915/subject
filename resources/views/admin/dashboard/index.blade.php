@@ -14,15 +14,46 @@
             <li class="active">
                 <i class="fa fa-dashboard"></i> 後台管理
             </li>
-            <i class="fa fa-dashboard"></i> <a href="{{route('admin.status.index')}}">進出教室名單</a>
-            <i class="fa fa-dashboard"></i> <a href="{{route('admin.status.search')}}">預約教室查詢</a>
-            <i class="fa fa-dashboard"></i> <a href="{{route('admin.book.index')}}">預約教室</a>
-            <i class="fa fa-dashboard"></i> <a href="{{route('admin.change.index')}}">調課管理</a>
         </ol>
         </span>
     </div>
 </div>
 <!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <a href="{{route('admin.status.index')}}" class="btn btn-success" style="text-align: center;background-color:#FFFFFF;color:#0000D1;font-size:large;border:3px black">
+                        進出教室名單
+                    </a>
+                </tr>
+
+                <tr>
+                    <a href="{{route('admin.status.search')}}" class="btn btn-success" style="text-align: center;background-color:#FFFFFF;color:#0000D1;font-size:large;border:3px black">
+                        預約教室查詢
+                    </a>
+                </tr>
+
+                <tr>
+                    <a href="{{route('admin.book.index')}}" class="btn btn-success" style="text-align: center;background-color:#FFFFFF;color:#0000D1;font-size:large;border:3px black">
+                        預約教室
+                    </a>
+                </tr>
+
+                <tr>
+                    <a href="{{route('admin.change.index')}}" class="btn btn-success" style="text-align: center;background-color:#FFFFFF;color:#0000D1;font-size:large;border:3px black">
+                        調課管理
+                    </a>
+                </tr>
+
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <p>&nbsp;</p>
