@@ -62,7 +62,11 @@
                                                 <td>{{$book->indatetime}}</td>
                                                 <td>{{$book->outdatetime}}</td>
                                                 <td>{{$book->count}}</td>
-                                                <td>{{$book->reason}}</td>
+                                                @if($book->reason=="0")
+                                                    <td>上課</td>
+                                                @elseif($book->reason=="1")
+                                                    <td>個人</td>
+                                                @endif
                                                 <td>
                                                     <a href="{{route('admin.book.edit',$book->id)}}">
                                                         <button type="submit" class="btn btn-success"  style="background-color:#FFFFFF;color:#0000D1;border:3px black">

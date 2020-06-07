@@ -52,7 +52,11 @@
                                                         <td>{{$room->name}}</td>
                                                         <td>{{$book->indatetime}}</td>
                                                         <td>{{$book->outdatetime}}</td>
-                                                        <td>{{$book->reason}}</td>
+                                                        @if($book->reason=="0")
+                                                            <td>上課</td>
+                                                        @elseif($book->reason=="1")
+                                                            <td>個人</td>
+                                                        @endif
                                                     </tr>
                                                 @endif
                                             @endforeach
