@@ -83,7 +83,6 @@
                             <ul>
                                 <li><a class="dropdown-item" href="{{ route('login') }}">登入</a></li>
                                 <li><a class="dropdown-item" href="{{ route('room') }}">教室課表查詢</a></li>
-                                <li><a class="dropdown-item" href="#">教室資訊查詢</a></li>
                                 <li><a class="dropdown-item" href="{{ route('session') }}">節次時段對照</a></li>
                             </ul>
                         </div>
