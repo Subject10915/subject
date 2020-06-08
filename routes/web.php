@@ -16,9 +16,9 @@ Route::pattern('id' , '[0-9]+');
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', function () {
-    return view('test');
-});
+//Route::get('/test', function () {
+//    return view('test');
+//});
 
 //使用者認證
 Auth::routes();
@@ -58,16 +58,19 @@ Route::get('/stutimetable','StutimetableController@index')->name('stutimetable')
 //後台首頁
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
 
-//*偵測進入教室名單*
+//偵測教室內狀態
+Route::get('/test', 'DetectController@store');
+
+//偵測進入教室名單
 Route::get('/admin/status/detect', ['as' => 'admin.status.detect', 'uses' => 'StaController@detectshow']);
 
-//*編輯警報器狀態的頁面*
+//編輯警報器狀態的頁面
 Route::get('/admin/status/detect/{id}/edit', ['as' => 'admin.status.detectedit'  , 'uses' => 'StaController@detectedit']);
 
-//*更新警報器狀態*
+//更新警報器狀態
 Route::get('/admin/status/detect/{id}'   , ['as' => 'admin.status.detectupdate' , 'uses' => 'StaController@detectupdate']);
 
-//*儲存教室偵測*
+//儲存教室偵測
 Route::post('/admin/status/detect', ['as' =>'admin.status.store'  , 'uses' => 'StaController@store']);
 
 //進出教室名單
