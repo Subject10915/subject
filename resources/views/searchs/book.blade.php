@@ -44,7 +44,11 @@
                                             <td>{{$book->indatetime}}</td>
                                             <td>{{$book->outdatetime}}</td>
                                             <td>{{$book->count}}</td>
-                                            <td>{{$book->reason}}</td>
+                                            @if($book->reason=='0')
+                                                <td>上課</td>
+                                            @else
+                                                <td>個人</td>
+                                            @endif
                                         </tr>
                                     @endif
                                     @endif

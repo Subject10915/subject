@@ -11,7 +11,6 @@
             </tr>
         </table>
     </header>
-
     <body style="background-color:#b0d4f1;">
     <center>
         <table style="width: 70%">
@@ -45,13 +44,13 @@
                 <tr>
                     <td>
                         <label><b>預約日期時間：</b></label>
-                        <input type="datetime-local" class="form-control checkin" name="indatetime" >
+                        <input type="datetime-local" class="form-control checkin" name="indatetime" id="indatetime">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label><b>預計離開時間：</b></label>
-                        <input type="datetime-local" class="form-control checkout" name="outdatetime">
+                        <input type="datetime-local" class="form-control checkout" name="outdatetime" id="outdatetime">
                     </td>
                 </tr>
                 <tr>

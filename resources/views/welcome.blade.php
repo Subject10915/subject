@@ -81,8 +81,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('student.index') }}">學生篇首頁</a>
-                    <a href="#">查詢</a>
+                    <a href="{{ route('student.index') }}">查詢</a>
                 </div>
             </div>
         </div>
