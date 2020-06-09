@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            進出教室管理 <small>所有進出教室名單</small>
+            進出教室管理 <small>所有進出教室名單 </small>
         </h1>
         <ol class="breadcrumb">
             <li class="active">
