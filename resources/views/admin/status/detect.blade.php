@@ -20,14 +20,14 @@ $endtime = array('09','10','11','13','14','15','16','17','18');
 $start_setime = array(1,2,3,4,5,6,7,8,9,10);
 $end_setiem = array(1,2,3,4,5,6,7,8,9,10);
 
-for ($a=0;$a<=8;$a++)
-{
-    $start_setime[$a] = Carbon::create($date,$starttime[$a],10,00);
-}
-for ($b=0;$b<=8;$b++)
-{
-    $end_setiem[$b] = Carbon::create($date,$endtime[$b],00,00);
-}
+//for ($a=0;$a<=8;$a++)
+//{
+//    $start_setime[$a] = Carbon::create($date,$starttime[$a],10,00);
+//}
+//for ($b=0;$b<=8;$b++)
+//{
+//    $end_setiem[$b] = Carbon::create($date,$endtime[$b],00,00);
+//}
 
 ?>
 
@@ -82,37 +82,37 @@ for ($b=0;$b<=8;$b++)
                 </thead>
                 <tbody>
                     {{--新增 上課教室 或 預約教室 的使用者--}}
-                    @foreach($users as $user)           {{--使用者4--}}
-                        @foreach($students as $student)         {{--使用者4--}}
-                            @foreach($rooms as $room)           {{--教室--}}
-                                @if($user->id == 4 && $user->id == $student->user_id )
-                                    @foreach ($courses as $course)          {{--課程--}}
-                                        @foreach ($studentitems as $studentitem)            {{--學生明細--}}
-                                            @foreach ($classitems as $classitem)            {{--教室明細--}}
-                                                @foreach($stutimetables as $stutimetable)           {{--學生時課表--}}
-                                                    @foreach ($classtimetables as $classtimetable)          {{--教室時刻表--}}
-                                                        @if (($course->id == $classitem->course_id && $course->id == $studentitem->coure_id) && $classtimetable->id == $classitem->class_timetable_id && $stuTimetable->id == $studentitem->stu_timetable_id && ($room->id == $course->room_id && $room->id == $classtimetable->room_id))
-                                                            @foreach($schedules as $schedule)
-                                                                @if ($datetime->between($schedule->starttime,$schedule->endtime) && (date("w") == $stutimetable->day && $classtimetable->day) && ($schedule->id == $stutimetable->session && $stutimetable->session == $classtimetable->session))
-                                                                    <tr>
-                                                                        <td>{{$user->id}}</td>
-                                                                        <td>{{$user->name}}</td>
-                                                                        <td>{{$room->name}}</td>
-                                                                        <td>{{$datetime}}</td>
-                                                                        <td>{{$schedule->endtime}}</td>
-                                                                        <td>{{"電源已打開"}}</td>
-                                                                        <td>{{"1"}}</td>
-                                                                        <td>{{"0"}}</td>
-                                                                    </tr>
-                                                                @endif
-                                                            @endforeach
-                                                        @endif
-                                                    @endforeach
-                                                @endforeach
-                                            @endforeach
-                                        @endforeach
-                                    @endforeach
-                                @endif
+                    @foreach($users as $user)
+                        @foreach($students as $student)
+                            @foreach($rooms as $room)
+{{--                                @if($user->id == 3 && $user->id == $student->user_id )--}}
+{{--                                    @foreach ($courses as $course)--}}
+{{--                                        @foreach ($studentitems as $studentitem)--}}
+{{--                                            @foreach ($classitems as $classitem)--}}
+{{--                                                @foreach($stutimetables as $stutimetable)--}}
+{{--                                                    @foreach ($classtimetables as $classtimetable)--}}
+{{--                                                        @if (($course->id == $classitem->course_id && $course->id == $studentitem->coure_id) && $classtimetable->id == $classitem->class_timetable_id && $stuTimetable->id == $studentitem->stu_timetable_id && ($room->id == $course->room_id && $room->id == $classtimetable->room_id))--}}
+{{--                                                            @foreach($schedules as $schedule)--}}
+{{--                                                                @if ($datetime->between($schedule->starttime,$schedule->endtime) && (date("w") == $stutimetable->day && $classtimetable->day) && ($schedule->id == $stutimetable->session && $stutimetable->session == $classtimetable->session))--}}
+{{--                                                                    <tr>--}}
+{{--                                                                        <td>{{$user->id}}</td>--}}
+{{--                                                                        <td>{{$user->name}}</td>--}}
+{{--                                                                        <td>{{$room->name}}</td>--}}
+{{--                                                                        <td>{{$datetime}}</td>--}}
+{{--                                                                        <td>{{$schedule->endtime}}</td>--}}
+{{--                                                                        <td>{{"電源已打開"}}</td>--}}
+{{--                                                                        <td>{{"1"}}</td>--}}
+{{--                                                                        <td>{{"0"}}</td>--}}
+{{--                                                                    </tr>--}}
+{{--                                                                @endif--}}
+{{--                                                            @endforeach--}}
+{{--                                                        @endif--}}
+{{--                                                    @endforeach--}}
+{{--                                                @endforeach--}}
+{{--                                            @endforeach--}}
+{{--                                        @endforeach--}}
+{{--                                    @endforeach--}}
+{{--                                @endif--}}
                                 {{--新增預約使用者--}}
                                 @foreach ($grades as $grade)
                                     @if (($user->id == 1 xor $user->id == 2 xor $user->id == 3 xor $user->id == 4) && $user->id == $student->user_id && $grade->id == $student->grade_id)

@@ -19,7 +19,7 @@ Use App\Schedule;
 Use Carbon\Carbon;
 
 use Illuminate\Http\Request;
-ini_set("max_execution_time", "300");
+ini_set("max_execution_time", "600");
 class StaController extends Controller
 {
     /**
@@ -67,59 +67,17 @@ class StaController extends Controller
     //顯示資料
     public function detectshow()
     {
-        //連接Arduino
-        function openSerial($command)
-        {
-            $openSerial = false;
-            try
-            {
-                exec("mode com7: BAUD=9600 PARITY=n DATA=8 STOP=1 to=off dtr=off rts=off");
-                $fopen =fopen("com4", "w");    //fopen 函數可以用來開啟文件或 URL 內容  //"w" 以寫入模式開啟  //"w+" 以讀寫模式開啟
-                $openSerial = true;
-            }
-            catch(Exception $e)     // 捕獲異常
-            {
-                echo 'Message: ' .$e->getMessage();
-            }
-
-            if($openSerial)
-            {
-                fwrite($fopen, $command); //fwrite() 函數寫入文件 -> fwrite(file,string,length) //file 必需。規定要寫入的打開文件 //string 必需。規定要寫入文件的字符串 //length 可選。規定要寫入的最大字節數
-                fclose($fopen);           //fclose() 函數關閉一個打開文件 -> fclose(file) //file 必需。規定要關閉的文件
-            }
-        }
-        openSerial("Without this line, the first control will not work. I don't know way.");
-
-        function buzeer_function($a)
-        {
-            if($a=="H")
-            {
-                openSerial("H");
-                return ($a);
-            }
-        }
-
-        $num=0;
-        $stanum=0;
+        $num = 0;
+        //$stanum = 0;
         $n = 0;
-//        $$tt = 0;
-//        $session1=date("H:i:s");
-//        $session2=date("H:i:s");
         $datetime = Carbon::now();      //定義日期
         $time = date("H:i:s");      //定義時間
-        $hms = '0';
-        $datetime1 = Carbon::create(null, null, null, 13, 10, 00);
-        $datetime2 = Carbon::create(null, null, null, 16, 00, 00);
-//        $hour = 'null';
-//        $minute = 'null';
-//        $second = 'null';
 
         //設定定義上課時間(時、分、秒)陣列 1~8節
-        $starttime=array('08:10:00','09:10:00','10:10:00','11:10:00','13:10:00','14:10:00','15:10:00','17:10:00','18:10:00');
+//        $starttime=array('08:10:00','09:10:00','10:10:00','11:10:00','13:10:00','14:10:00','15:10:00','17:10:00','18:10:00');
 
         //設定定義下課時間(時、分、秒)陣列 1~8節
-        $endtime=array('09:00:00','10:00:00','11:00:00','13:00:00','14:00:00','15:00:00','16:00:00','17:00:00','18:55:00');
-
+//        $endtime=array('09:00:00','10:00:00','11:00:00','13:00:00','14:00:00','15:00:00','16:00:00','17:00:00','18:55:00');
 
         //設定定義下課時間(分、秒)陣列 1~8節
         //$ms=array('00','10');
@@ -235,9 +193,9 @@ class StaController extends Controller
                                         {
                                             foreach ($detects as $detect)
                                             {
-                                                $datetime = $detect->time;
+                                                //$datetime = $detect->time;
 //                                                if($datetime->between($book->indatetime, $book->outdatetime) && $n==0)
-                                                if(($datetime->between($book->indatetim,$book->outdatetime)) && $n==0 && $detect->detect==1)
+                                                if(($detect->time>=$book->indatetime&& $detect->time<=$book->outdatetime) && $n==0 && $detect->detect==1)
                                                 {
                                                     $n += 1 ;
                                                     $stas = new Sta;
@@ -282,7 +240,7 @@ class StaController extends Controller
                     if (($datetime>=$sta->indaretime && $datetime >=$sta->outdatetime) && $detect->detect==1 && $stas->door=1 && $hms==0)
                     {
                         $hms += 1;
-                        $a = buzzer_function("H");
+//                        $a = buzzer_function("H");
                         $stas = Sta::find($stanum);
                         $stas->immediate = '已過使用時間';
                         $stas->buzzer=1;
