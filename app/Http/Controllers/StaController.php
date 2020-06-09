@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Detect;
 use App\Sta;
 use App\Item;
 use App\User;
@@ -14,7 +15,7 @@ Use App\StuTimetable;
 Use App\Course;
 Use App\Classitem;
 Use App\Classtimetable;
-
+Use App\Schedule;
 Use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -66,8 +67,42 @@ class StaController extends Controller
     //顯示資料
     public function detectshow()
     {
+        //連接Arduino
+        function openSerial($command)
+        {
+            $openSerial = false;
+            try
+            {
+                exec("mode com7: BAUD=9600 PARITY=n DATA=8 STOP=1 to=off dtr=off rts=off");
+                $fopen =fopen("com4", "w");    //fopen 函數可以用來開啟文件或 URL 內容  //"w" 以寫入模式開啟  //"w+" 以讀寫模式開啟
+                $openSerial = true;
+            }
+            catch(Exception $e)     // 捕獲異常
+            {
+                echo 'Message: ' .$e->getMessage();
+            }
+
+            if($openSerial)
+            {
+                fwrite($fopen, $command); //fwrite() 函數寫入文件 -> fwrite(file,string,length) //file 必需。規定要寫入的打開文件 //string 必需。規定要寫入文件的字符串 //length 可選。規定要寫入的最大字節數
+                fclose($fopen);           //fclose() 函數關閉一個打開文件 -> fclose(file) //file 必需。規定要關閉的文件
+            }
+        }
+        openSerial("Without this line, the first control will not work. I don't know way.");
+
+        function buzeer_function($a)
+        {
+            if($a=="H")
+            {
+                openSerial("H");
+                return ($a);
+            }
+        }
+
         $num=0;
         $stanum=0;
+        $n = 0;
+//        $$tt = 0;
 //        $session1=date("H:i:s");
 //        $session2=date("H:i:s");
         $datetime = Carbon::now();      //定義日期
@@ -95,12 +130,14 @@ class StaController extends Controller
         $stas = Sta::orderBy('id')->get();
         $students = Student::all();
         $studentitems = Studentitem::all();
-        $stuTimetables = StuTimetable::all();
+        $stutimetables = StuTimetable::all();
         $books = Book::all();
         $courses = Course::all();
         $classitems = Classitem::all();
         $classtimetables = Classtimetable::all();
         $grades = Grade::all();
+        $detects = Detect::all();
+        $schedules = Schedule::all();
         $data = [
             'users'=>$users,
             'rooms'=>$rooms,
@@ -108,12 +145,14 @@ class StaController extends Controller
             'stas'=>$stas,
             'students'=>$students,
             'studentitems'=>$studentitems,
-            'stuTimetables'=>$stuTimetables,
+            'stutimetables'=>$stutimetables,
             'books'=>$books,
             'courses'=>$courses,
             'classitems'=> $classitems,
             'classtimetables'=> $classtimetables,
-            'grades'=>$grades
+            'grades'=>$grades,
+            'detects' =>$detects,
+            'schedules' => $schedules
         ];
         //新增 上課教室 或 預約教室 的使用者
         foreach($users as $user) {
@@ -194,15 +233,25 @@ class StaController extends Controller
                                         }
                                         if($num < 1)
                                         {
-                                            $stas = new Sta;
-                                            $stas->user_id = $user->id;
-                                            $stas->room_id = $room->id;
-                                            $stas->indaretime = Carbon::now();
-                                            $stas->outdatetime = $book->outdatetime;
-                                            $stas->immediate = '電源已打開';
-                                            $stas->door = 1;
-                                            $stas->buzzer = 0;
-                                            $stas->save();
+                                            foreach ($detects as $detect)
+                                            {
+                                                $datetime = $detect->time;
+//                                                if($datetime->between($book->indatetime, $book->outdatetime) && $n==0)
+                                                if(($datetime->between($book->indatetim,$book->outdatetime)) && $n==0 && $detect->detect==1)
+                                                {
+                                                    $n += 1 ;
+                                                    $stas = new Sta;
+                                                    $stas->user_id = $user->id;
+                                                    $stas->room_id = $room->id;
+                                                    $stas->indaretime = Carbon::now();
+                                                    $stas->outdatetime = $book->outdatetime;
+                                                    $stas->immediate = '電源已打開';
+                                                    $stas->door = 1;
+                                                    $stas->buzzer = 0;
+                                                    $stas->save();
+                                                }
+                                            }
+
                                         }
                                     }
                                 }
@@ -213,25 +262,34 @@ class StaController extends Controller
             }
         }
         //判斷教室使用狀態
-//        foreach ($stas as $sta)
-//        {
-//            $stanum += 1;
-//            for ($i=1 ; $i <= $stanum ; $i++)
-//            {
-//                if ($datetime->between($sta->indaretime, $sta->outdatetime))
-//                {
-//                    $stas = Sta::find($i);
-//                    $stas->save();
-//                }
-//                else
-//                {
-//                    $stas = Sta::find($i);
-//                    $stas->immediate='已關閉電源';
-//                    $stas->door=0;
-//                    $stas->save();
-//                }
-//            }
-//        }
+        foreach ($stas as $sta)
+        {
+            $stanum = $sta->id;
+            $hms = 0;
+                foreach ($detects as $detect)
+                {
+                    //偵測教室使用時間
+                    if (($datetime>=$sta->indaretime && $datetime >=$sta->outdatetime) && $detect->detect==0 && $hms==0)
+                    {
+
+                        $hms += 1;
+                        $stas = Sta::find($stanum);
+                        $stas->immediate = '已關閉電源';
+                        $stas->door=0;
+                        $stas->save();
+                    }
+                    //偵測教室使用時間是否已超過
+                    if (($datetime>=$sta->indaretime && $datetime >=$sta->outdatetime) && $detect->detect==1 && $stas->door=1 && $hms==0)
+                    {
+                        $hms += 1;
+                        $a = buzzer_function("H");
+                        $stas = Sta::find($stanum);
+                        $stas->immediate = '已過使用時間';
+                        $stas->buzzer=1;
+                        $stas->save();
+                    }
+                }
+        }
         return view('admin.status.detect',$data);
     }
     //在 StaController 的 edit 編輯資料頁面
@@ -245,7 +303,9 @@ class StaController extends Controller
     public function detectupdate(Request $request,$id)
     {
         $stas = Sta::find($id);
+        $stas->door=0;
         $stas->buzzer=0;
+        $stas->immediate = '已關閉電源';
         $stas->update($request->all());
         return redirect()->route('admin.status.detect');
     }
