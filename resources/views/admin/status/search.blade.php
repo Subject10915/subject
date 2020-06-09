@@ -13,11 +13,13 @@
                     所有預約教室查詢
                 </small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-edit"></i> 查詢
+                <i class="fa fa-dashboard"></i> 查詢
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->
@@ -42,6 +44,7 @@
                 <option value="10">文化休閒館CRB02</option>
                 <option value="11">國秀樓403教室</option>
                 <option value="12">國秀樓509教室</option>
+                <option value="13">M510A</option>
             </select>
             <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">
                 查詢
@@ -80,7 +83,11 @@
                                     <td>{{$room->name}}</td>
                                     <td>{{$book->indatetime}}</td>
                                     <td>{{$book->outdatetime}}</td>
-                                    <td>{{$book->reason}}</td>
+                                    @if($book->reason=="0")
+                                        <td>上課</td>
+                                    @elseif($book->reason=="1")
+                                        <td>個人</td>
+                                    @endif
                                 </tr>
                                     @endif
                                 @endforeach
@@ -97,6 +104,11 @@
 
 <!-- /.row -->
 
+<div class="text-right">
+    <form action="{{ route('admin.dashboard.index')}}" method="GET">
+        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">回首頁</button>
+    </form>
+</div>
 
 <!-- /.row -->
 

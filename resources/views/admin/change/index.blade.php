@@ -9,11 +9,13 @@
         <h1 class="page-header">
             調課管理 <small>調課資訊</small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
-                <i class="fa fa-edit"></i> 調課管理
+                <i class="fa fa-dashboard"></i> 調課管理
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->
@@ -100,4 +102,12 @@
     </div>
 </div>
 <!-- /.row -->
+
+<div class="text-right">
+    <form action="{{ route('admin.dashboard.index')}}" method="GET">
+        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">回首頁</button>
+    </form>
+</div>
+<!-- /.row -->
+
 @endsection

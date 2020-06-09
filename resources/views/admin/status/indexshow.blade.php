@@ -13,13 +13,16 @@
                 該教室進出名單
             </small>
         </h1>
+        <span style="font-size:large;">
+        <ol class="breadcrumb">
+            <li class="active">
+                <i class="fa fa-dashboard"></i> 進出教室管理
+            </li>
+        </ol>
+        </span>
     </div>
 </div>
-<ol class="breadcrumb">
-    <li class="active">
-        <i class="fa fa-edit"></i> 進出教室管理
-    </li>
-</ol>
+
 <!-- /.row -->
 
     <div class="row">

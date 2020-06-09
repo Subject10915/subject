@@ -9,11 +9,13 @@
         <h1 class="page-header">
             新增預約名單 <small>請輸入預約詳細資料</small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
                 <i class="fa fa-edit"></i> 預約管理
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->

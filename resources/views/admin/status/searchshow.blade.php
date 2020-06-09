@@ -12,11 +12,13 @@
                     該教室預約查詢
                 </small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
                 <i class="fa fa-edit"></i> 查詢
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->
@@ -50,7 +52,11 @@
                                                         <td>{{$room->name}}</td>
                                                         <td>{{$book->indatetime}}</td>
                                                         <td>{{$book->outdatetime}}</td>
-                                                        <td>{{$book->reason}}</td>
+                                                        @if($book->reason=="0")
+                                                            <td>上課</td>
+                                                        @elseif($book->reason=="1")
+                                                            <td>個人</td>
+                                                        @endif
                                                     </tr>
                                                 @endif
                                             @endforeach

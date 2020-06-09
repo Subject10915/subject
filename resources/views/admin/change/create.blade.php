@@ -9,11 +9,13 @@
         <h1 class="page-header">
             新增調課資訊 <small>請輸入調課詳細資料</small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
                 <i class="fa fa-edit"></i> 調課管理
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->
@@ -50,6 +52,7 @@
                             <option value="10">文化休閒館CRB02</option>
                             <option value="11">國秀樓403教室</option>
                             <option value="12">國秀樓509教室</option>
+                            <option value="13">M510A</option>
                         </select>
                     </div>
                 </tr>

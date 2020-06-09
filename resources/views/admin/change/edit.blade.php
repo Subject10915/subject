@@ -9,11 +9,13 @@
         <h1 class="page-header">
             編輯調課 <small>修改編輯調課資訊</small>
         </h1>
+        <span style="font-size:large;">
         <ol class="breadcrumb">
             <li class="active">
                 <i class="fa fa-edit"></i> 調課管理
             </li>
         </ol>
+        </span>
     </div>
 </div>
 <!-- /.row -->

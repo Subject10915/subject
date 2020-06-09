@@ -215,7 +215,7 @@ class BookController extends Controller
             $book->reason=$request->reason;
             $book->save();
 
-            $room_id=$request->name;
+            $room_id=$request->room_id;
             $item = new Item;
             $item->book_id = $book->id;
             $item->room_id = $room_id;
