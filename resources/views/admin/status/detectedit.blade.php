@@ -45,7 +45,7 @@
             </h1>
             <div class="text-right">
                 <a href="{{ route('admin.status.detectupdate',$sta->id) }}" >
-<!--                    <?php //$b=buzzer_function("L"); ?>-->
+                    {{--<!-- <?php //$b=buzzer_function("L"); ?>-->--}}
                     <form action="{{ route('admin.status.detectupdate',$sta->id) }}" method="GET">
                         <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">確定</button>
                     </form>
