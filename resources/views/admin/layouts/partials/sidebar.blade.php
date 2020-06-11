@@ -33,7 +33,7 @@
             <li class="active">
                 <a href="{{ route('admin.dashboard.index') }}"><i class="fa fa-fw fa-dashboard"></i> 後台管理</a>
             </li>
-            <li class="active">
+            <li>
                 <a href="{{ route('admin.status.detect') }}"><i class="fa fa-fw fa-edit"></i> 偵測進入教室名單</a>
             </li>
             <li>
