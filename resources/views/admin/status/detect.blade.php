@@ -7,27 +7,8 @@ $datetime = Carbon::now();
 $time = date("H:i:s");
 //設定定義星期陣列
 $week=array("日","一","二","三","四","五","六");
-
+//設定 年-月-日
 $date = date("Y-m-d");
-
-//設定定義上課時間(時)陣列 1~8節
-$starttime = array('08','09','10','11','13','14','15','16','17');
-
-//設定定義下課時間(時)陣列 1~8節
-$endtime = array('09','10','11','13','14','15','16','17','18');
-
-//Carbon::create(null, $month, $day, $hour, $minute, $second);
-$start_setime = array(1,2,3,4,5,6,7,8,9,10);
-$end_setiem = array(1,2,3,4,5,6,7,8,9,10);
-
-for ($a=0;$a<=8;$a++)
-{
-    $start_setime[$a] = Carbon::create($date,$starttime[$a],10,00);
-}
-for ($b=0;$b<=8;$b++)
-{
-    $end_setiem[$b] = Carbon::create($date,$endtime[$b],00,00);
-}
 
 ?>
 
@@ -38,6 +19,7 @@ for ($b=0;$b<=8;$b++)
 @section('content')
 
 <!-- Page Heading -->
+<body style="background-color:white;">
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
@@ -82,16 +64,16 @@ for ($b=0;$b<=8;$b++)
                 </thead>
                 <tbody>
                     {{--新增 上課教室 或 預約教室 的使用者--}}
-                    @foreach($users as $user)           {{--使用者4--}}
-                        @foreach($students as $student)         {{--使用者4--}}
-                            @foreach($rooms as $room)           {{--教室--}}
-                                @if($user->id == 4 && $user->id == $student->user_id )
-                                    @foreach ($courses as $course)          {{--課程--}}
-                                        @foreach ($studentitems as $studentitem)            {{--學生明細--}}
-                                            @foreach ($classitems as $classitem)            {{--教室明細--}}
-                                                @foreach($stutimetables as $stutimetable)           {{--學生時課表--}}
-                                                    @foreach ($classtimetables as $classtimetable)          {{--教室時刻表--}}
-                                                        @if (($course->id == $classitem->course_id && $course->id == $studentitem->coure_id) && $classtimetable->id == $classitem->class_timetable_id && $stuTimetable->id == $studentitem->stu_timetable_id && ($room->id == $course->room_id && $room->id == $classtimetable->room_id))
+                    @foreach($users as $user)
+                        @foreach($students as $student)
+                            @foreach($rooms as $room)
+                                @if($user->id == 3 && $user->id == $student->user_id )
+                                    @foreach ($courses as $course)
+                                        @foreach ($studentitems as $studentitem)
+                                            @foreach ($classitems as $classitem)
+                                                @foreach($stutimetables as $stutimetable)
+                                                    @foreach ($classtimetables as $classtimetable)
+                                                        @if (($course->id == $classitem->course_id && $course->id == $studentitem->coure_id) && $classtimetable->id == $classitem->class_timetable_id && $stutimetable->id == $studentitem->stu_timetable_id && ($room->id == $course->room_id && $room->id == $classtimetable->room_id))
                                                             @foreach($schedules as $schedule)
                                                                 @if ($datetime->between($schedule->starttime,$schedule->endtime) && (date("w") == $stutimetable->day && $classtimetable->day) && ($schedule->id == $stutimetable->session && $stutimetable->session == $classtimetable->session))
                                                                     <tr>
@@ -211,5 +193,6 @@ for ($b=0;$b<=8;$b++)
         </div>
     </div>
 </div>
+</body>
 <!-- /.row -->
 @endsection

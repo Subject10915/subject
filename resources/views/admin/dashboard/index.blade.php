@@ -4,6 +4,7 @@
 
 @section('content')
 <!-- Page Heading -->
+<body style="background-color:white;">
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
@@ -59,25 +60,7 @@
         </div>
     </div>
 </div>
-
-<div class="row">
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-</div>
+</body>
 <!-- /.row -->
 
 @endsection
