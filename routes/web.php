@@ -16,6 +16,11 @@ Route::pattern('id' , '[0-9]+');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', function () {
+    return view('test1');
+});
+
 Route::get('/admin/detect1', function () {
    return view('admin.status.detect1');
 })->name('admin.detect1');
