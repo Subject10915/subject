@@ -16,9 +16,11 @@ Route::pattern('id' , '[0-9]+');
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::get('/test', function () {
-//    return view('test');
-//});
+Route::get('/admin/detect1', function () {
+   return view('admin.status.detect1');
+})->name('admin.detect1');
+
+Route::get('/admin/detestore', 'StaController@detestore')->name('admin.detestore');
 
 //使用者認證
 Auth::routes();
@@ -27,7 +29,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //學生首頁
 Route::get('/student','StudentController@index')->name('student.index');
-
 
 //查詢-教室課表查詢
 Route::get('/room','RoomController@index')->name('room');
@@ -59,7 +60,7 @@ Route::get('/stutimetable','StutimetableController@index')->name('stutimetable')
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
 
 //偵測教室內狀態
-Route::get('/test', 'DetectController@store');
+//Route::get('/test', 'DetectController@store');
 
 //偵測進入教室名單
 Route::get('/admin/status/detect', ['as' => 'admin.status.detect', 'uses' => 'StaController@detectshow']);

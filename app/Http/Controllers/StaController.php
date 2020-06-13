@@ -27,6 +27,30 @@ class StaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function detestore(Request $request)
+    {
+        $url= 'https://api.thingspeak.com/channels/1080631/fields/1.json?timezone=Asia/Taipei&results=2';
+        $contents =file_get_contents($url);
+        $NewString=preg_split('/,/',$contents);
+        if($NewString[13] == '"field1":"1"}]}')
+            $st ='1';
+        else
+            $st ='0';
+
+        $stas =new Sta();
+        $stas->user_id = '4';
+        $stas->room_id = '13';
+        date_default_timezone_set("Asia/Shanghai");
+        $stas->indaretime=date('Y-m-d H:i:s');
+        $stas->outdatetime=date('Y-m-d H:i:s');
+        $stas->immediate=$st;
+        $stas->door='0';
+        $stas->buzzer='0';
+
+        $stas->save();
+        return view('admin.status.detect1');
+    }
+
     public function index()
     {
         //
@@ -73,8 +97,8 @@ class StaController extends Controller
             $openSerial = false;
             try
             {
-                exec("mode com7: BAUD=9600 PARITY=n DATA=8 STOP=1 to=off dtr=off rts=off");
-                $fopen =fopen("com4", "w");    //fopen 函數可以用來開啟文件或 URL 內容  //"w" 以寫入模式開啟  //"w+" 以讀寫模式開啟
+                exec("mode com3: BAUD=9600 PARITY=n DATA=8 STOP=1 to=off dtr=off rts=off");
+                $fopen =fopen("com3", "w");    //fopen 函數可以用來開啟文件或 URL 內容  //"w" 以寫入模式開啟  //"w+" 以讀寫模式開啟
                 $openSerial = true;
             }
             catch(Exception $e)     // 捕獲異常
