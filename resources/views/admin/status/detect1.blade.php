@@ -15,6 +15,7 @@
     @endphp
 
     <!-- Page Heading -->
+    <body style="background-color:white;">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -60,16 +61,23 @@
     </div>
     </div>
     <div class="text-right">
-        <form action="{{ route('admin.detestore')}}" method="GET">
-            <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">儲存偵測</button>
-        </form>
-    </div>
-    <div class="text-right">
-        <form action="{{ route('admin.detect1')}}" method="GET">
-            <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">重新整理</button>
-        </form>
+        <table>
+            <tr>
+                <td>
+                    <form action="{{ route('admin.detect1')}}" method="GET">
+                        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">偵測</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('admin.detestore')}}" method="GET">
+                        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">儲存偵測</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+
     </div>
 
-
+    </body>
 
 @endsection

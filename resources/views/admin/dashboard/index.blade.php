@@ -27,8 +27,8 @@
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <a href="{{route('admin.status.detect')}}" class="btn btn-success" style="text-align: center;background-color:#FFFFFF;color:#0000D1;font-size:large;border:3px black">
-                        偵測進入教室名單
+                    <a href="{{route('admin.detect1')}}" class="btn btn-success" style="text-align: center;background-color:#FFFFFF;color:#0000D1;font-size:large;border:3px black">
+                        偵測
                     </a>
                 </tr>
                 <tr>

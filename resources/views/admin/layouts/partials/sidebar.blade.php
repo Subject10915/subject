@@ -52,7 +52,7 @@
         <div class="sidebar">
             <ul class="nav navbar-nav side-nav" style="background-color: #e3f2fd;">
                 <li>
-                    <a href="{{ route('admin.status.detect') }}">偵測進入教室名單</a>
+                    <a href="{{ route('admin.detect1') }}">偵測</a>
                 </li>
                 <li>
                     <a href="{{ route('admin.status.index') }}">進出教室名單</a>
