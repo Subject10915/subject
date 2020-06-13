@@ -38,6 +38,7 @@ for ($b=0;$b<=8;$b++)
 @section('content')
 
 <!-- Page Heading -->
+<body style="background-color:white;">
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
@@ -266,5 +267,6 @@ for ($b=0;$b<=8;$b++)
         </div>
     </div>
 </div>
+</body>
 <!-- /.row -->
 @endsection

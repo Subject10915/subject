@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<div style="background-color:white;">
 <html lang="en">
 
 <head>
@@ -67,3 +68,4 @@
 </body>
 
 </html>
+</div>
