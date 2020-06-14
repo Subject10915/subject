@@ -231,7 +231,7 @@ class BookController extends Controller
             $item->save();
         });
 
-        return redirect()->route('admin.detestore');
+        return redirect()->route('admin.book.index');
     }
 
     public function adminshow($id)
