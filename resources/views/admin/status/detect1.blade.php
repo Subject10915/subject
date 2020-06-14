@@ -12,6 +12,8 @@
             $sta='1';
         else
             $sta='0';
+        $dt=date('Y-m-d H:i:s');
+        $day=" ";
     @endphp
 
     <!-- Page Heading -->
@@ -37,23 +39,22 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th style="text-align: center">借用人姓名</th>
-                        <th style="text-align: center">教室名稱</th>
                         <th style="text-align: center">進入日期時間</th>
                         <th style="text-align: center">離開日期時間</th>
                         <th style="text-align: center">使用狀態</th>
                     </tr>
                     </thead>
                     <tbody>
-
                     <tr>
-                        <td>彭惠昕</td>
-                        <td>M510A</td>
-                        <td><?php echo date('Y-m-d H:i:s')?></td>
-                        <td><?php echo date('Y-m-d H:i:s')?></td>
+                        @if($sta == '1')
+                            <td>{{$dt}}</td>
+                            <td>{{$day}}</td>
+                        @elseif($sta == '0')
+                            <td>{{$day}}</td>
+                            <td>{{$dt}}</td>
+                        @endif
                         <td>{{$sta}}</td>
                     </tr>
-
                     </tbody>
                 </table>
             </div>

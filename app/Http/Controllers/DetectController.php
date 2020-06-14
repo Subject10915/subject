@@ -36,14 +36,31 @@ class DetectController extends Controller
      */
     public function store(Request $request)
     {
-        $data=array(
+        //$request->call(function (){
+            $url= 'https://api.thingspeak.com/channels/1080631/fields/1.json?timezone=Asia/Taipei&results=2';
+            $contents =file_get_contents($url);
+            $NewString=preg_split('/,/',$contents);
+            if($NewString[13] == '"field1":"1"}]}')
+                $st ='1';
+            else
+                $st ='0';
+
+            $detect =new Detect;
+            $detect->detect=$st;
+            date_default_timezone_set("Asia/Shanghai");
+            $detect->time=date("Y-m-d");
+            $detect ->save();
+        //});
+
+        //return view('welcome');
+        /*$data=array(
                  'detect'=>$request->input('test'),
             'time'=>Carbon::now()
 
              );
         Detect::insert($data);
         return "1";
-//            return redirect()->route('admin.status.index');
+            return redirect()->route('admin.status.index');*/
     }
 
     /**
