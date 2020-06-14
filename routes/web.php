@@ -14,7 +14,7 @@
 Route::pattern('id' , '[0-9]+');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('students.index');
 });
 
 Route::get('/test', function () {
