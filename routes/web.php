@@ -21,9 +21,7 @@ Route::get('/test', function () {
     return view('test1');
 });
 
-Route::get('/admin/detect1', function () {
-   return view('admin.status.detect1');
-})->name('admin.detect1');
+
 
 Route::get('/admin/detestore', 'StaController@detestore')->name('admin.detestore');
 
@@ -65,7 +63,9 @@ Route::get('/stutimetable','StutimetableController@index')->name('stutimetable')
 Route::get('/admin', ['as' => 'admin.dashboard.index', 'uses' => 'AdminController@index']);
 
 //偵測教室內狀態
-//Route::get('/test', 'DetectController@store');
+Route::get('/admin/detect1', function () {
+    return view('admin.status.detect1');
+})->name('admin.detect1');
 
 //偵測進入教室名單
 Route::get('/admin/status/detect', ['as' => 'admin.status.detect', 'uses' => 'StaController@detectshow']);

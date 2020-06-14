@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '教室使用狀態')
+@section('title', 'M510A教室使用狀態')
 
 @section('content')
     @php
@@ -27,7 +27,7 @@
     <center>
         <table style="width: 70%">
             <tr>
-                <td><h1>教室使用狀態查詢</h1></td>
+                <td><h1>M510A教室使用狀態</h1></td>
             </tr>
         </table>
         <form action="{{ route('room.sta')}}" method="GET">
