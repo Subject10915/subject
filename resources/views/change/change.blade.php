@@ -150,29 +150,38 @@
             var before=document.getElementById(x).value;
             var after=document.getElementById("afterdate").value;
             var beforeday=parseInt($("#beforeday").val());
-            var day=Date.parse(after)-Date.parse(before);
-            var week = parseInt((day/(1000*60*60*24))%7);
-            week += beforeday;
-            week =parseInt(week % 7);
-            if(before>=after){
-                $("#total").text('日期錯誤');
+
+            if(before>=after) {
+                var day = Date.parse(before)-Date.parse(after);
+                var week = parseInt((day / (1000 * 60 * 60 * 24)) % 7);
+                week += beforeday;
+                week = parseInt(week % 7);
             }
             else{
-                $("#total").text(week);
+                var day=Date.parse(after)-Date.parse(before);
+                var week = parseInt((day/(1000*60*60*24))%7);
+                week += beforeday;
+                week =parseInt(week % 7);
             }
+            $("#total").text(week);
         }
         function After(y){
             var before=document.getElementById("before").value;;
             var after=document.getElementById(y).value;
             var beforeday=parseInt($("#beforeday").val());
-            var day=Date.parse(after)-Date.parse(before);
-            var week = parseInt((day/(1000*60*60*24))%7);
-            week += beforeday;
-            week =parseInt(week % 7);
+
             if(before>=after){
-                $("#total").text('日期錯誤');
+                var day=Date.parse(before)-Date.parse(after);
+                var week = parseInt((day/(1000*60*60*24))%7);
+                week += beforeday;
+                week =parseInt(week % 7);
+                $("#total").text(week);
             }
             else{
+                var day=Date.parse(after)-Date.parse(before);
+                var week = parseInt((day/(1000*60*60*24))%7);
+                week += beforeday;
+                week =parseInt(week % 7);
                 if(week==0){
                     $("#total").text('7');
                 }

@@ -20,7 +20,7 @@
             </tr>
         </table>
         <table style="width: 70%;text-align: center" border="1" align="center" bgcolor="white">
-            <tr>
+            <tr bgcolor="#fafad2">
                 <td>申請人姓名</td>
                 <td>教室名稱</td>
                 <td>課程名稱</td>
