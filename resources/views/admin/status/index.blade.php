@@ -72,22 +72,14 @@
                                         @if($sta->room_id==$room->id)
                                             <tr>
                                                 <td>{{$sta->id}}</td>
-                                                <td>{{$user->name}}</td>
-                                                <td>{{$room->name}}</td>
                                                 @if($sta->immediate=='1')
                                                     <td>{{$sta->indaretime}}</td>
                                                     <td>  </td>
+                                                    <td>教室有人使用</td>
                                                 @elseif($sta->immediate=='0')
                                                     <td>  </td>
                                                     <td>{{$sta->outdatetime}}</td>
-                                                @endif
-                                                <td>{{$sta->immediate}}</td>
-                                                <td>{{$sta->indaretime}}</td>
-                                                <td>{{$sta->outdatetime}}</td>
-                                                @if($sta->immediate=="0")
                                                     <td>教室無人使用</td>
-                                                @elseif($sta->immediate=="1")
-                                                    <td>教室有人使用</td>
                                                 @endif
                                             </tr>
                                         @endif

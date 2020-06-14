@@ -46,18 +46,15 @@
                     </thead>
                     <tbody>
                     <tr>
-
                         @if($sta == '1')
                             <td>{{$dt}}</td>
                             <td>{{$day}}</td>
+                            <td>教室有人使用</td>
                         @elseif($sta == '0')
                             <td>{{$day}}</td>
                             <td>{{$dt}}</td>
+                            <td>教室無人使用</td>
                         @endif
-                        <td><?php echo date('Y-m-d H:i:s')?></td>
-                        <td><?php echo date('Y-m-d H:i:s')?></td>
-
-                        <td>{{$sta}}</td>
                     </tr>
                     </tbody>
                 </table>
