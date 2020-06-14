@@ -4,22 +4,34 @@
         margin:0px;
         padding:0px;
     }
+    .container a{
+        height:50px;
+        font-size:26px;
+    }
     ul li {
         list-style-type:none;
-        height:30px;
-        width:100px;
+        height:42px;
+        width:190px;
         float:left;
-        font-size:16px;
+        font-size:26px;
         display:inline;
     }
     ul li a {
         text-decoration:none;
         font-weight: bold;
-        color:#1f648b;
+        color:black;
         display:block;
-        line-height:29px;
+        line-height:32px;
         padding-left:10px;
     }
+    .top-left {
+        position: absolute;
+        right:200px;
+        top:19px;
+        font-size:26px;
+        font-weight: bold;
+    }
+
     ul li a:hover {
 
     }
@@ -27,15 +39,15 @@
 
     }
     ul li ul {
-        visibility:hidden;
+        visibility:visible;
     }
     ul li:hover ul {
         visibility:visible;
     }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="color: #8eb4cb">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="color: black">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('student.index') }}" style="color: #1d68a7">NCUT</a>
+        <a class="navbar-brand" href="{{ route('student.index') }}" style="color: #0056b3">NCUT</a>
         <ul>
             @if (Route::has('login'))
                 @auth
@@ -81,12 +93,14 @@
                     <li class="nav-item dropdown"><a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>查詢</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <ul>
-                                <li><a class="dropdown-item" href="{{ route('login') }}">登入</a></li>
                                 <li><a class="dropdown-item" href="{{ route('room') }}">教室課表查詢</a></li>
                                 <li><a class="dropdown-item" href="{{ route('session') }}">節次時段對照</a></li>
                             </ul>
                         </div>
                     </li>
+                    <div class="top-left links" style="color: black;">
+                        <a href="{{ route('login') }}">登入</a>
+                    </div>
                 @endauth
             @endif
         </ul>

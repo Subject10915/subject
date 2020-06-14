@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                偵測管理 <small>所有進出教室名單 </small>
+                偵測管理 <small>進出M510A教室名單 </small>
             </h1>
             <span style="font-size:large;">
         <ol class="breadcrumb">
@@ -37,8 +37,6 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th style="text-align: center">借用人姓名</th>
-                        <th style="text-align: center">教室名稱</th>
                         <th style="text-align: center">進入日期時間</th>
                         <th style="text-align: center">離開日期時間</th>
                         <th style="text-align: center">使用狀態</th>
@@ -47,8 +45,6 @@
                     <tbody>
 
                     <tr>
-                        <td>彭惠昕</td>
-                        <td>M510A</td>
                         <td><?php echo date('Y-m-d H:i:s')?></td>
                         <td><?php echo date('Y-m-d H:i:s')?></td>
                         <td>{{$sta}}</td>
@@ -61,23 +57,15 @@
     </div>
     </div>
     <div class="text-right">
-        <table>
-            <tr>
-                <td>
-                    <form action="{{ route('admin.detect1')}}" method="GET">
-                        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">偵測</button>
-                    </form>
-                </td>
-                <td>
-                    <form action="{{ route('admin.detestore')}}" method="GET">
-                        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">儲存偵測</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
-
+        <form action="{{ route('admin.detect1') }}" method="GET">
+            <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">偵測</button>
+        </form>
     </div>
-
+    <div class="text-right">
+        <form action="{{ route('admin.detestore') }}" method="GET">
+            <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">儲存偵測</button>
+        </form>
+    </div>
     </body>
 
 @endsection
