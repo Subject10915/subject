@@ -168,11 +168,20 @@ class BookController extends Controller
     public function roomsta()
     {
         //
-        $users = User::all();
-        $rooms = Room::all();
-        $stas = Sta::orderBy('id')->get();
-        $data = ['rooms'=>$rooms,'users'=>$users,'stas'=>$stas];
-        return view('books.roomsta',$data);
+
+        /*$url= 'https://api.thingspeak.com/channels/1080631/fields/1.json?timezone=Asia/Taipei&results=2';
+        $contents =file_get_contents($url);
+        $NewString=preg_split('/,/',$contents);
+        if($NewString[13] == '"field1":"1"}]}')
+            $st ="have person";
+        else
+            $st ="no one";*/
+
+        //$users = User::all();
+        //$rooms = Room::all();
+        //$stas = Sta::orderBy('id')->get();
+        //$data = ['rooms'=>$rooms,'users'=>$users,'stas'=>$stas];
+        return view('books.roomsta');
     }
 
     public function roomstashow(Request $request)
@@ -222,7 +231,7 @@ class BookController extends Controller
             $item->save();
         });
 
-        return redirect()->route('admin.book.index');
+        return redirect()->route('admin.detestore');
     }
 
     public function adminshow($id)
