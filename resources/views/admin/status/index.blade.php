@@ -85,9 +85,9 @@
                                                 <td>{{$sta->indaretime}}</td>
                                                 <td>{{$sta->outdatetime}}</td>
                                                 @if($sta->immediate=="0")
-                                                    <td>沒人</td>
+                                                    <td>教室無人使用</td>
                                                 @elseif($sta->immediate=="1")
-                                                    <td>有人</td>
+                                                    <td>教室有人使用</td>
                                                 @endif
                                             </tr>
                                         @endif
