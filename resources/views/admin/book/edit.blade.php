@@ -30,15 +30,15 @@
             <table>
                 <tr>
                     <div class="form-group">
-                        <label>預約日期時間：</label>
-                        <input type="text" name="indatetime" class="form-control" value="{{$books->indatetime}}">
+                        <label>預約日期時間：{{$books->indatetime}}</label>
+                        <input type="datetime-local" name="indatetime" class="form-control" >
                     </div>
                 </tr>
 
                 <tr>
                     <div class="form-group">
-                        <label>預計離開時間：</label>
-                        <input type="text" name="outdatetime" class="form-control" value="{{$books->outdatetime}}">
+                        <label>預計離開時間：{{$books->outdatetime}}</label>
+                        <input type="datetime-local" name="outdatetime" class="form-control" >
                     </div>
                 </tr>
 

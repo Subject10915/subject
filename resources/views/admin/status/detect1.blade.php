@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                偵測管理 <small>所有進出教室名單 </small>
+                偵測管理 <small>進出M510A教室名單 </small>
             </h1>
             <span style="font-size:large;">
         <ol class="breadcrumb">
@@ -46,6 +46,7 @@
                     </thead>
                     <tbody>
                     <tr>
+
                         @if($sta == '1')
                             <td>{{$dt}}</td>
                             <td>{{$day}}</td>
@@ -53,6 +54,9 @@
                             <td>{{$day}}</td>
                             <td>{{$dt}}</td>
                         @endif
+                        <td><?php echo date('Y-m-d H:i:s')?></td>
+                        <td><?php echo date('Y-m-d H:i:s')?></td>
+
                         <td>{{$sta}}</td>
                     </tr>
                     </tbody>
@@ -62,23 +66,15 @@
     </div>
     </div>
     <div class="text-right">
-        <table>
-            <tr>
-                <td>
-                    <form action="{{ route('admin.detect1')}}" method="GET">
-                        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">偵測</button>
-                    </form>
-                </td>
-                <td>
-                    <form action="{{ route('admin.detestore')}}" method="GET">
-                        <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">儲存偵測</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
-
+        <form action="{{ route('admin.detect1') }}" method="GET">
+            <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">偵測</button>
+        </form>
     </div>
-
+    <div class="text-right">
+        <form action="{{ route('admin.detestore') }}" method="GET">
+            <button type="submit" class="btn btn-success" style="background-color:#FFFFFF;color:#0000D1;border:3px black;font-size:large">儲存偵測</button>
+        </form>
+    </div>
     </body>
 
 @endsection

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>智慧教室系統</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -13,7 +13,7 @@
         <style>
             html, body {
                 background-color:#b0d4f1;
-                color: #000000;
+                color:#000000;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -40,6 +40,13 @@
                 top: 18px;
             }
 
+            .top-left {
+                position: absolute;
+                right: 110px;
+                top: 18px;
+            }
+
+
             .content {
                 text-align: center;
             }
@@ -51,7 +58,7 @@
             .links > a {
                 color: #000000;
                 padding: 0 25px;
-                font-size: 20px;
+                font-size: 28px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -74,14 +81,13 @@
                     @endauth
                 </div>
             @endif
+                <div class="top-left links">
+                    <a href="{{ route('student.index') }}">查詢</a>
+                </div>
 
             <div class="content">
                 <div class="title m-b-md">
                     國立勤益科技大學<br>智慧教室系統
-                </div>
-
-                <div class="links">
-                    <a href="{{ route('student.index') }}">查詢</a>
                 </div>
             </div>
         </div>

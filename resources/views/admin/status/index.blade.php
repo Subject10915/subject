@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            進出教室管理 <small>所有進出教室名單 </small>
+            進出教室管理 <small>偵測紀錄 </small>
         </h1>
         <span style="font-size:large;">
         <ol class="breadcrumb">
@@ -20,7 +20,7 @@
     </div>
 </div>
 <!-- /.row -->
-<div class="row" style="margin-bottom: 20px; text-align: right">
+<!--<div class="row" style="margin-bottom: 20px; text-align: right">
     <span style="font-size:large;">
     <body>
     <form action="{{ route('admin.status.indexshow') }}" method="POST" role="form">
@@ -49,7 +49,7 @@
     </body>
     </span>
 </div>
-
+-->
 <!-- /.row -->
 
     <div class="row">
@@ -59,8 +59,6 @@
                     <thead>
                     <tr>
                         <th width="70" style="text-align: center">編號</th>
-                        <th style="text-align: center">借用人姓名</th>
-                        <th style="text-align: center">教室名稱</th>
                         <th style="text-align: center">進入日期時間</th>
                         <th style="text-align: center">離開日期時間</th>
                         <th style="text-align: center">使用狀態</th>
@@ -84,6 +82,13 @@
                                                     <td>{{$sta->outdatetime}}</td>
                                                 @endif
                                                 <td>{{$sta->immediate}}</td>
+                                                <td>{{$sta->indaretime}}</td>
+                                                <td>{{$sta->outdatetime}}</td>
+                                                @if($sta->immediate=="0")
+                                                    <td>沒人</td>
+                                                @elseif($sta->immediate=="1")
+                                                    <td>有人</td>
+                                                @endif
                                             </tr>
                                         @endif
                                     @endforeach
