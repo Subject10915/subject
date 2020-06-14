@@ -76,8 +76,13 @@
                                                 <td>{{$sta->id}}</td>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$room->name}}</td>
-                                                <td>{{$sta->indaretime}}</td>
-                                                <td>{{$sta->outdatetime}}</td>
+                                                @if($sta->immediate=='1')
+                                                    <td>{{$sta->indaretime}}</td>
+                                                    <td>  </td>
+                                                @elseif($sta->immediate=='0')
+                                                    <td>  </td>
+                                                    <td>{{$sta->outdatetime}}</td>
+                                                @endif
                                                 <td>{{$sta->immediate}}</td>
                                             </tr>
                                         @endif

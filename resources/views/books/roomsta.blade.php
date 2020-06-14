@@ -3,7 +3,18 @@
 @section('title', '教室使用狀態')
 
 @section('content')
+    @php
+        $url= 'https://api.thingspeak.com/channels/1080631/fields/1.json?timezone=Asia/Taipei&results=2';
+        $contents =file_get_contents($url);
 
+        $NewString=preg_split('/,/',$contents);
+        if($NewString[13] == '"field1":"1"}]}')
+            $sta='1';
+        else
+            $sta='0';
+        $dt=date('Y-m-d H:i:s');
+        $day=" ";
+    @endphp
     <header class="masthead" style="background-color:#b0d4f1;">
         <table style="height: 80px">
             <tr>
@@ -19,53 +30,34 @@
                 <td><h1>教室使用狀態查詢</h1></td>
             </tr>
         </table>
-        <form action="{{ route('room.sta.show') }}" method="POST" role="form">
-            {{ csrf_field() }}
+        <form action="{{ route('room.sta')}}" method="GET">
             <table style="width: 70%">
                 <tr>
-                    <td>教室名稱：
-                        <select name="select">
-                            <option value=" "> </option>
-                            <option value="1">M501</option>
-                            <option value="2">M502</option>
-                            <option value="3">M503</option>
-                            <option value="4">M511</option>
-                            <option value="5">M513</option>
-                            <option value="6">M514</option>
-                            <option value="7">M510B</option>
-                        </select>
-                        <button>查詢</button>
+                    <td>
+                        <button type="submit" class="btn btn-success" href="{{ route('room.sta')}}">偵測</button>
                     </td>
                 </tr>
             </table>
         </form>
+        <br>
         <table style="width: 70%;text-align: center" border="1" align="center" bgcolor="white">
-            <tr>
-                <td>編號</td>
-                <td>借用人姓名</td>
-                <td>教室名稱</td>
-                <td>進入日期時間</td>
-                <td>離開日期時間</td>
-                <td>使用狀態</td>
+            <tr bgcolor="#fafad2">
+                <td style="text-align: center">進入日期時間</td>
+                <td style="text-align: center">離開日期時間</td>
+                <td style="text-align: center">使用狀態</td>
             </tr>
-            @foreach($stas as $sta)
-                @foreach($users as $user)
-                    @if($user->id==$sta->user_id)
-                        @foreach($rooms as $room)
-                            @if($sta->room_id==$room->id)
-                                <tr>
-                                    <td>{{$sta->id}}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$room->name}}</td>
-                                    <td>{{$sta->indaretime}}</td>
-                                    <td>{{$sta->outdatetime}}</td>
-                                    <td>{{$sta->immediate}}</td>
-                                </tr>
-                            @endif
-                        @endforeach
-                    @endif
-                @endforeach
-            @endforeach
+            <tr>
+                @if($sta == '1')
+                    <td>{{$dt}}</td>
+                    <td>{{$day}}</td>
+                    <td>教室有人使用</td>
+                @elseif($sta == '0')
+                    <td>{{$day}}</td>
+                    <td>{{$dt}}</td>
+                    <td>教室無人使用</td>
+                @endif
+
+            </tr>
         </table>
     </center>
     </body>

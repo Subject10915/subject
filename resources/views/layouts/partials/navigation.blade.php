@@ -53,7 +53,7 @@
                         <ul>
                             <li><a class="dropdown-item" href="{{ route('book') }}">預約教室</a></li>
                             <li><a class="dropdown-item" href="{{ route('book.ownshow') }}">預約教室紀錄</a></li>
-                            <li><a class="dropdown-item" href="{{ route('room.sta') }}">教室使用狀態</a></li>
+                            <li><a class="dropdown-item" href="{{ route('room.sta') }}">偵測教室使用狀態</a></li>
                             <li><a class="dropdown-item" href="{{ route('book.search') }}">教室預約查詢</a></li>
                             <li><a class="dropdown-item" href="{{ route('change') }}">調課</a></li>
                             <li><a class="dropdown-item" href="{{ route('change.show') }}">調課申請查詢</a></li>
